@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<workflow xmlns="http://eprints.org/ep3/workflow" xmlns:epc="http://eprints.org/ep3/control">
+
+  <flow>
+    <stage ref="main"/>
+  </flow>
+
+  <stage name="main">
+    <component type="Field::Multi">
+      <title>EPrint Details</title>
+      <field ref="title" />
+      <field ref="abstract" />
+      <field ref="date"/>
+      <field ref="type" />
+      <field ref="doi" />      
+    </component>
+
+    <component type="Field::Multi">
+      <title>Substantive Link</title>
+      <field ref="hesa" />
+      <field ref="former_staff"/>
+      <field ref="pre_pub_link" />
+    </component>
+
+     <component type="Field::Multi">
+      <title>Submission Details</title>
+      <field ref="open_access" />
+      <field ref="xref"/>
+      <field ref="research_group" />
+      <field ref="research_specialism" />
+      <field ref="num_co_authors" />
+      <field ref="pending_pub" />
+      <field ref="multi_weight" />
+      <field ref="reserves" />
+      <field ref="supplementary_url" />
+      <field ref="confidential" />
+    </component>
+   
+
+  </stage>
+
+</workflow>

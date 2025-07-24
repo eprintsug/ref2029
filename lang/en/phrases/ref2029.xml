@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no" ?>
+<!DOCTYPE phrases SYSTEM "entities.dtd">
+
+<epp:phrases xmlns="http://www.w3.org/1999/xhtml" xmlns:epp="http://eprints.org/ep3/phrase" xmlns:epc="http://eprints.org/ep3/control">
+
+<!-- Datasets -->
+
+<!-- User -->
+
+<!-- REF2029 Selection -->
+
+<!-- REF2029 Benchmark -->
+
+<!-- 
+	Screen plugins
+-->
+
+<!-- REF2029 -->
+<epp:phrase id="Plugin/Screen/REF2029:title">REF 2029</epp:phrase>
+<epp:phrase id="Plugin/Screen/REF2029:icon">assignment_return</epp:phrase>
+
+<epp:phrase id="Plugin/Screen/REF2029:benchmarks">Benchmarks</epp:phrase>
+<epp:phrase id="Plugin/Screen/REF2029:action_create_benchmark">Create new Benchmark</epp:phrase>
+
+<!-- BenchmarkEdit -->
+<epp:phrase id="Plugin/Screen/REF2029/BenchmarkEdit:title">Edit Benchmark</epp:phrase>
+<epp:phrase id="Plugin/Screen/REF2029/BenchmarkEdit:benchmark_title">Edit Benchmark: <epc:pin name="title"/></epp:phrase>
+<epp:phrase id="Plugin/Screen/REF2029/BenchmarkEdit:stop">Cancel</epp:phrase>
+<epp:phrase id="Plugin/Screen/REF2029/BenchmarkEdit:save">Save and Return</epp:phrase>
+
+<!-- Benchmark Workflow -->
+<epp:phrase id="ref2029_benchmark_fieldname_title">Title</epp:phrase>
+<epp:phrase id="ref2029_benchmark_fieldhelp_title">Title for the REF2029 Benchmark</epp:phrase>
+
+<epp:phrase id="ref2029_benchmark_fieldname_status">Active Status</epp:phrase>
+<epp:phrase id="ref2029_benchmark_fieldhelp_status">Select whether this benchmark is active or not. Only one benchmark may be active at a time and by default new selections are added to the active benchmark.</epp:phrase>
+<epp:phrase id="ref2029_benchmark_fieldopt_status_active">Active</epp:phrase>
+<epp:phrase id="ref2029_benchmark_fieldopt_status_inactive">Inactive</epp:phrase>
+
+<!-- EPrint Tab -->
+<epp:phrase id="Plugin/Screen/EPrint/REF2029:title">REF2029</epp:phrase>
+<epp:phrase id="Plugin/Screen/EPrint/REF2029:action_create_selection">Select for REF 2029</epp:phrase>
+<epp:phrase id="Plugin/Screen/REF2029/SelectionEdit:title">Edit Selection</epp:phrase>
+<epp:phrase id="Plugin/Screen/EPrint/REF2029:eprint_selected">This EPrint has already been added as a selection in the active benchmark.</epp:phrase>
+<epp:phrase id="Plugin/Screen/EPrint/REF2029:eprint_not_selected">This EPrint has not been selected for the current benchmark.</epp:phrase>
+
+<!-- SelectionEdit -->
+<epp:phrase id="Plugin/Screen/REF2029/SelectionEdit:selection_title">Edit Selection: <epc:pin name="title"/></epp:phrase>
+<epp:phrase id="Plugin/Screen/REF2029/SelectionEdit:stop">Cancel</epp:phrase>
+<epp:phrase id="Plugin/Screen/REF2029/SelectionEdit:save">Save and Return</epp:phrase>
+
+
+<!-- Selection Workflow -->
+<epp:phrase id="ref2029_selection_fieldname_title">Title</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_title"></epp:phrase>
+<epp:phrase id="ref2029_selection_fieldname_abstract">Abstract</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_abstract"></epp:phrase>
+<epp:phrase id="ref2029_selection_fieldname_date">Date</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_date"></epp:phrase>
+
+<epp:phrase id="ref2029_selection_fieldname_type">Type</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_type"></epp:phrase>
+
+<epp:phrase id="ref2029_selection_fieldopt_type_A">A</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_B">B</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_C">C</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_D">D</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_E">E</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_F">F</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_G">G</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_H">H</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_I">I</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_J">J</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_K">K</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_L">L</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_M">M</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_N">N</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_O">O</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_P">P</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_Q">Q</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_R">R</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_S">S</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_T">T</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_U">U</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_V">V</epp:phrase>
+
+
+
+
+<epp:phrase id="ref2029_selection_fieldname_doi">DOI</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_doi"></epp:phrase>
+
+<epp:phrase id="ref2029_selection_fieldname_hesa">HESA Staff Identifier</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_hesa"></epp:phrase>
+<epp:phrase id="ref2029_selection_fieldname_former_staff">Former staff</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_former_staff"></epp:phrase>
+<epp:phrase id="ref2029_selection_fieldname_pre_pub_link">Pre-publication substantive link</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_pre_pub_link"></epp:phrase>H
+
+<epp:phrase id="ref2029_selection_fieldname_open_access">Open access</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_open_access"></epp:phrase>
+<epp:phrase id="ref2029_selection_fieldname_xref">Request for cross-referral</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_xref"></epp:phrase>
+<epp:phrase id="ref2029_selection_fieldname_research_group">Research group</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_research_group"></epp:phrase>
+<epp:phrase id="ref2029_selection_fieldname_research_specialism">Research specialism</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_research_specialism"></epp:phrase>
+<epp:phrase id="ref2029_selection_fieldname_num_co_authors">Co-authors</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_num_co_authors"></epp:phrase>
+<epp:phrase id="ref2029_selection_fieldname_pending_pub">Pending publication</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_pending_pub"></epp:phrase>
+<epp:phrase id="ref2029_selection_fieldname_multi_weight">Request to 'multiple-weight' the output</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_multi_weight"></epp:phrase>
+<epp:phrase id="ref2029_selection_fieldname_reserves">Reserves</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_reserves"></epp:phrase>
+<epp:phrase id="ref2029_selection_fieldname_supplementary_url">Supplementary information</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_supplementary_url"></epp:phrase>
+<epp:phrase id="ref2029_selection_fieldname_confidential">Confidential output</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_confidential"></epp:phrase>
+
+</epp:phrases>
