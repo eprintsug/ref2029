@@ -22,3 +22,10 @@ $c->{datasets}->{ref2029_selection} = {
     class => "EPrints::DataObj::REF2029_Selection",
     sqlname => "ref2029_selection",
 };
+
+# REF2029 Reviews
+use EPrints::DataObj::REF2029_Review;
+$c->{datasets}->{ref2029_review} = {
+    class => "EPrints::DataObj::REF2029_Review",
+    sqlname => "ref2029_review",
+};

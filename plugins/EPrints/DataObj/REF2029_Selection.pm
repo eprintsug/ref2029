@@ -67,6 +67,10 @@ sub get_system_field_info
         { name => "supplementary_url", type => "url", required => 0 },
 
         { name => "confidential", type => "longtext", required => 0 },
+
+        # Reviews
+        { name => "reviews", type => "itemref", datasetid => 'ref2029_review', multiple => 1, required => 0 },
+
     );       
 }
 
