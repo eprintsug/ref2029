@@ -44,6 +44,9 @@
 <epp:phrase id="Plugin/Screen/EPrint/REF2029:eprint_selected">This EPrint has already been added as a selection in the active benchmark.</epp:phrase>
 <epp:phrase id="Plugin/Screen/EPrint/REF2029:eprint_not_selected">This EPrint has not been selected for the current benchmark.</epp:phrase>
 
+<epp:phrase id="Plugin/Screen/EPrint/REF2029:selection_reviews">Reviews</epp:phrase>
+<epp:phrase id="Plugin/Screen/EPrint/REF2029:action_request">Request Review</epp:phrase>
+
 <!-- SelectionEdit -->
 <epp:phrase id="Plugin/Screen/REF2029/SelectionEdit:selection_title">Edit Selection: <epc:pin name="title"/></epp:phrase>
 <epp:phrase id="Plugin/Screen/REF2029/SelectionEdit:stop">Cancel</epp:phrase>
@@ -84,9 +87,6 @@
 <epp:phrase id="ref2029_selection_fieldopt_type_U">U</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_V">V</epp:phrase>
 
-
-
-
 <epp:phrase id="ref2029_selection_fieldname_doi">DOI</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldhelp_doi"></epp:phrase>
 
@@ -117,5 +117,33 @@
 <epp:phrase id="ref2029_selection_fieldhelp_supplementary_url"></epp:phrase>
 <epp:phrase id="ref2029_selection_fieldname_confidential">Confidential output</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldhelp_confidential"></epp:phrase>
+
+<!-- Reviews -->
+<epp:phrase id="ref2029_review_fieldname_reviewer">Reviewer Name</epp:phrase>
+<epp:phrase id="ref2029_review_fieldname_review">Review</epp:phrase>
+<epp:phrase id="ref2029_review_fieldhelp_review">Please enter your review in the text box below.</epp:phrase>
+
+<epp:phrase id="ref2029_review_fieldname_rating">Score</epp:phrase>
+<epp:phrase id="ref2029_review_fieldhelp_rating">Please select a score from 1 to 5 stars</epp:phrase>
+<epp:phrase id="ref2029_review_fieldopt_rating_0">1 Star</epp:phrase>
+<epp:phrase id="ref2029_review_fieldopt_rating_1">2 Stars</epp:phrase>
+<epp:phrase id="ref2029_review_fieldopt_rating_2">3 Stars</epp:phrase>
+<epp:phrase id="ref2029_review_fieldopt_rating_3">4 Stars</epp:phrase>
+<epp:phrase id="ref2029_review_fieldopt_rating_4">5 Stars</epp:phrase>
+
+
+<epp:phrase id="ref2029_review_fieldname_status">Status</epp:phrase>
+<epp:phrase id="ref2029_review_fieldopt_status_complete">Review Complete</epp:phrase>
+<epp:phrase id="ref2029_review_fieldopt_status_review_pending">Review Pending</epp:phrase>
+<epp:phrase id="ref2029_review_fieldopt_status_error">Error</epp:phrase>
+
+
+<!-- Review Submission -->
+<epp:phrase id="Plugin/Screen/REF2029_Review/Respond:title">Submit Review</epp:phrase>
+<epp:phrase id="Plugin/Screen/REF2029_Review/Respond:save">Submit Review</epp:phrase>
+
+<!-- Review Acknowledgement -->
+<epp:phrase id="Plugin/Screen/REF2029_Review/Acknowledge:title">Review Recieved</epp:phrase>
+<epp:phrase id="Plugin/Screen/REF2029_Review/Acknowledge:review_submitted">Thank you for submitting your review.</epp:phrase>
 
 </epp:phrases>

@@ -6,7 +6,8 @@ $c->{plugins}{"Screen::REF2029"}{params}{disable} = 0;
 $c->{plugins}{"Screen::EPrint::REF2029"}{params}{disable} = 0;
 $c->{plugins}{"Screen::REF2029::BenchmarkEdit"}{params}{disable} = 0;
 $c->{plugins}{"Screen::REF2029::SelectionEdit"}{params}{disable} = 0;
-
+$c->{plugins}{"Screen::REF2029_Review::Respond"}{params}{disable} = 0;
+$c->{plugins}{"Screen::REF2029_Review::Acknowledge"}{params}{disable} = 0;
 
 # REF2029 Benchmarks
 use EPrints::DataObj::REF2029_Benchmark;

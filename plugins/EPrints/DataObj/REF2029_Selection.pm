@@ -69,8 +69,7 @@ sub get_system_field_info
         { name => "confidential", type => "longtext", required => 0 },
 
         # Reviews
-        { name => "reviews", type => "itemref", datasetid => 'ref2029_review', multiple => 1, required => 0 },
-
+        { name => "reviews", type => "subobject", datasetid => 'ref2029_review', multiple => 1, dataobj_fieldname => 'selectionid', dataset_fieldname => '' },
     );       
 }
 

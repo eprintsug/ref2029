@@ -55,21 +55,17 @@
     margin-top: 20px;
 }
 
-
 .eprint_selections .ref2029_selection{
- 
+    padding: 10px;
+}
+
+.eprint_selections .ref2029_selection .ref2029_selection_overview{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
-    background: #f8f9fa;
-    border: 1px solid #c6c7c8;
-
-    padding: 10px;
-
 }
 
-.eprint_selections .ref2029_selection .selection_metadata{
+.eprint_selections .ref2029_selection .ref2029_selection_overview .selection_metadata{
     width: 50%;
     display: flex;
     flex-direction: row;
@@ -90,3 +86,47 @@
     display: contents;
 }
 
+.eprint_selections .ref2029_selection .ref2029_selection_reviews{
+    text-align: left;
+}
+
+/* Reviews */
+.ref2029_selection_review{
+    text-align: left;
+    margin-top: 10px;
+    padding: 10px;
+    
+    background: #f8f9fa;
+    border: 1px solid #c6c7c8;
+    border-left: 5px solid #e19141; // default to amber/pending status
+}
+
+.ref2029_selection_review.review_complete{
+    border-left: 5px solid #1f7e02;
+}
+
+.ref2029_selection_review .review_metadata{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.review_metadata dt, .review_rating dt{
+   display: inline-block;
+    font-weight: bold;
+}
+
+.review_metadata dd, .review_rating dd{
+    display: inline-block;
+    margin: 0;
+}
+
+.review_content{
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.review_content span{
+    display: block;
+}

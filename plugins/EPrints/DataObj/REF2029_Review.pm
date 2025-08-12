@@ -31,12 +31,64 @@ sub get_system_field_info
 
         { name => "email", type => "email", required => 0, },
 
-        { name => "review", type => "text", required => 0 },
+        { name => "review", type => "longtext", required => 0 },
 
         { name => "rating", type => "set", options => [0, 1, 2, 3, 4], required => 0 },
 
         { name => "pin", type => "text", required => 0 },
+
+        { name => "status", type => "set", multiple => 0, required => 0, options=>[
+            'complete',
+            'error',
+            'review_pending',
+            ]
+        },
     );       
 }
 
+# PIN functionality borrowed from Request DataObj
+sub review_with_pin
+{
+    my( $repo, $pin ) = @_;
 
+    my $dataset = $repo->dataset( 'ref2029_review' );
+
+    my $searchexp = EPrints::Search->new(
+                     satisfy_all => 1,
+                     session => $repo,
+                     dataset => $dataset,
+                    );
+
+    $searchexp->add_field( $dataset->get_field( 'pin' ),
+               $pin,
+               'EQ',
+               'ALL'
+             );
+
+    my $results = $searchexp->perform_search;
+
+    return $results->item( 0 );
+}
+
+sub new_from_data
+{
+    my( $class, $session, $data, $dataset ) = @_;
+
+    $dataset = $dataset || undef;
+
+    my $dataobj = $class->SUPER::new_from_data( $session, $data, $dataset );
+
+    $dataobj->set_pin;
+
+    return $dataobj;
+}
+
+sub set_pin
+{
+    my( $self ) = @_;
+    # Generate a random unique pin by using a random string prefixed
+    # by the (unique and sequential) request ID
+    my $pin = $self->get_id() . EPrints::Utils::generate_token(22);
+    $self->set_value( 'pin', $pin );
+    return $pin;
+}

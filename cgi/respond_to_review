@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+use EPrints qw();
+
+use strict;
+use warnings;
+
+use EPrints::ScreenProcessor;
+
+my $eprints = EPrints->new;
+my $repo = $eprints->current_repository();
+
+EPrints::ScreenProcessor->process(
+    screenid => 'REF2029_Review::Respond',
+    session => $repo,
+    template => $repo->config( 'user_area_template' ),
+    url => $repo->get_conf( 'rel_cgipath' ) . '/users/home' );
+
+$repo->terminate;
