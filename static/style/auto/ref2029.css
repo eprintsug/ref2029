@@ -91,6 +91,21 @@
 }
 
 /* Reviews */
+.ref2029_request_review > form{
+    display: table;
+    border-spacing: 5px;
+}
+
+.ref2029_selection_reviews .ref2029_request_review label{
+    display: table-row;
+    font-weight: bold;
+}
+
+.ref2029_selection_reviews .ref2029_request_review label span{
+    display: table-cell;
+    vertical-align: middle;
+}
+
 .ref2029_selection_review{
     text-align: left;
     margin-top: 10px;

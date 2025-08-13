@@ -66,13 +66,16 @@ sub action_request_review
     my $eprint =  $self->{processor}->{eprint};
     my $review_ds = $session->dataset( "ref2029_review" );
 
+    my $reviewer = $session->param( "reviewer" );
     my $email = $session->param( "email" );
 
     my $review = EPrints::DataObj::REF2029_Review->create_from_data(
         $session,
         {
             selectionid => $session->param( "selection" ),
-            email => $email,    
+            reviewer => $reviewer,
+            email => $email,
+            status => "review_pending",   
         },
         $review_ds
     );
@@ -177,16 +180,30 @@ sub render_reviews
     $review_heading->appendChild( $self->html_phrase( "selection_reviews" ) );
 
     # request review
-    my $form = $div->appendChild( $self->render_form( "request_review" ) );
-    $form->appendChild( EPrints::MetaField->new(
-            name => "email",
-            type => "email",
-            repository => $repo,
-        )->render_input_field(
-            $repo,
-            $self->{processor}->{data},
-        ) );
+    $div->appendChild( my $request_div = $xml->create_element( "div", class => "ref2029_request_review" ) );
+    my $form = $request_div->appendChild( $self->render_form( "request_review" ) );
+ 
+    my $review_ds = $repo->dataset( "ref2029_review" );
+    my $reviewer_field = $review_ds->field( "reviewer" );
+    my $email_field = $review_ds->field( "email" );
 
+    $form->appendChild( my $reviewer_label = $xml->create_element( "label" ) );
+    $reviewer_label->appendChild( my $reviewer_span = $xml->create_element( "span" ) );
+    $reviewer_span->appendChild( $reviewer_field->render_name );
+    $reviewer_label->appendChild( $reviewer_field->render_input_field(
+        $repo,
+        $self->{processor}->{data},
+    ) );
+ 
+
+    $form->appendChild( my $email_label = $xml->create_element( "label" ) );
+    $email_label->appendChild( my $email_span = $xml->create_element( "span" ) );
+    $email_span->appendChild( $email_field->render_name );
+    $email_label->appendChild( $email_field->render_input_field(
+        $repo,
+        $self->{processor}->{data},
+    ) );
+    
     $form->appendChild( $repo->render_hidden_field( "selection", $selection->id ) );
 
     $form->appendChild( $repo->render_action_buttons(

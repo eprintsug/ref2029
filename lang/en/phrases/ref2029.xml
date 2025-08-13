@@ -120,6 +120,7 @@
 
 <!-- Reviews -->
 <epp:phrase id="ref2029_review_fieldname_reviewer">Reviewer Name</epp:phrase>
+<epp:phrase id="ref2029_review_fieldname_email">Email</epp:phrase>
 <epp:phrase id="ref2029_review_fieldname_review">Review</epp:phrase>
 <epp:phrase id="ref2029_review_fieldhelp_review">Please enter your review in the text box below.</epp:phrase>
 

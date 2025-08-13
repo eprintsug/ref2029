@@ -14,6 +14,11 @@
     </span>    
 </div>
 
+<epc:choose>
+        <epc:when test="status = 'review_pending'">
+                <button class="ref2029_review_copy" data-text="{$config{http_cgiurl}}/respond_to_review?pin={$item.property('pin')}">Copy Review Link</button>
+        </epc:when>
+        <epc:otherwise>
 <div class="review_content">
     <span class="review_review">
             <epc:print expr="review"/>
@@ -23,5 +28,6 @@
         <dd><epc:print expr="rating"/></dd>    
     </span>
 </div>
-
+</epc:otherwise>
+</epc:choose>
 </cite:citation>

@@ -27,7 +27,7 @@ sub get_system_field_info
 
         { name => "selectionid", type => "itemref", datasetid => 'ref2029_selection', required => 1, },
 
-        { name => "reviewer", type => "name", required => 0, },
+        { name => "reviewer", type => "text", required => 0, },
 
         { name => "email", type => "email", required => 0, },
 
