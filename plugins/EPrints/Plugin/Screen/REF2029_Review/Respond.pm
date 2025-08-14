@@ -70,6 +70,8 @@ sub action_save
 {
     my( $self ) = @_;
 
+    print STDERR "action save!!!!\n";
+
     $self->workflow->update_from_form( $self->{processor} );
     $self->uncache_workflow;
     
@@ -78,15 +80,10 @@ sub action_save
     $self->{processor}->{review}->set_value( "status", "complete" );
     $self->{processor}->{review}->commit;
 
-    $self->{processor}->{screenid} = $self->screen_after_flow;
+	$self->{processor}->{review_sent} = 1;
+    #$self->{processor}->{screeanid} = $self->screen_after_flow;
 }
 
-sub screen_after_flow
-{
-    my( $self ) = @_;
-
-    return "REF2029_Review::Acknowledge";
-}
 
 sub render
 {
@@ -96,7 +93,7 @@ sub render
 
     my $page = $repo->xml->create_element( "div", class => "ref2029_review_respond" );
 
-    if( $self->{processor}->{review_submitted} )
+    if( $self->{processor}->{review_sent} )
     {
         $page->appendChild( $self->html_phrase( "review_submission" ) );
         return $page;

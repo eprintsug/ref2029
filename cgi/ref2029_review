@@ -12,7 +12,7 @@ my $repo = $eprints->current_repository();
 EPrints::ScreenProcessor->process(
     screenid => 'REF2029_Review::Respond',
     session => $repo,
-    template => $repo->config( 'user_area_template' ),
-    url => $repo->get_conf( 'rel_cgipath' ) . '/users/home' );
+    url => $repo->config( "http_cgiroot" ) . "/ref2029_review" 
+);
 
 $repo->terminate;

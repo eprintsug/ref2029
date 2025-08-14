@@ -16,7 +16,7 @@
 
 <epc:choose>
         <epc:when test="status = 'review_pending'">
-                <button class="ref2029_review_copy" data-text="{$config{http_cgiurl}}/respond_to_review?pin={$item.property('pin')}">Copy Review Link</button>
+                <button class="ref2029_review_copy" data-text="{$config{http_cgiurl}}/ref2029_review?pin={$item.property('pin')}">Copy Review Link</button>
         </epc:when>
         <epc:otherwise>
 <div class="review_content">
