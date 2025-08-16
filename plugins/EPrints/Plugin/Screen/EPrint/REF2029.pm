@@ -10,7 +10,7 @@ sub new
 
     my $self = $class->SUPER::new(%params);
 
-    $self->{actions} = [qw/ create_selection request_review /];
+    $self->{actions} = [qw/ create_selection request_review remove_review /];
 
     $self->{appears} = [
         {
@@ -19,7 +19,7 @@ sub new
         },
     ];
 
-    #avoid issues with multiple archives under <v3.3.13
+    # avoid issues with multiple archives under <v3.3.13
     $self->{disable} = 1;
 
     return $self;
@@ -63,7 +63,6 @@ sub action_request_review
     my( $self ) = @_;
 
     my $session = $self->{session};
-    my $eprint =  $self->{processor}->{eprint};
     my $review_ds = $session->dataset( "ref2029_review" );
 
     my $reviewer = $session->param( "reviewer" );
@@ -88,6 +87,26 @@ sub action_request_review
 
     $self->{processor}->{screenid} = "EPrint::View";
 }
+
+sub allow_remove_review { shift->can_be_viewed }
+
+sub action_remove_review
+{
+    my( $self ) = @_;
+
+    my $session = $self->{session};
+    my $review_ds = $session->dataset( "ref2029_review" );
+
+    my $review_id = $session->param( "review" );
+    my $review = $review_ds->dataobj( $review_id );
+    if( defined $review ) 
+    {
+        $review->remove;
+    }
+    
+    $self->{processor}->{screenid} = "EPrint::View";
+}
+
 
 sub render
 {
@@ -213,16 +232,34 @@ sub render_reviews
     # and now display the reviews
     foreach my $review ( @{$selection->value( "reviews" )} )
     {
-        my $status = "";
-        $status = $review->value( "status" ) if $review->is_set( "status" );
-
-        $div->appendChild( my $review_div = $xml->create_element( "div", class => "ref2029_selection_review review_$status" ) );
-        $review_div->appendChild( $review->render_citation );
+        $div->appendChild( $self->render_review( $review ) );
     }
 
     return $div;
-
-
 }
 
+sub render_review
+{
+    my( $self, $review ) = @_;
+
+    my $repo = $self->{repository};
+    my $xml = $repo->xml;
+    my $xhtml = $repo->xhtml;
+
+    my $status = "";
+    $status = $review->value( "status" ) if $review->is_set( "status" );
+
+    my $review_div = $xml->create_element( "div", class => "ref2029_selection_review review_$status" );
+    $review_div->appendChild( $review->render_citation );
+
+    $review_div->appendChild( my $review_actions = $xml->create_element( "div", class => "ref2029_review_actions" ) );
+
+    my $form = $review_actions->appendChild( $self->render_form( "remove_review" ) );
+    $form->appendChild( $repo->render_hidden_field( "review", $review->id ) );
+    $form->appendChild( $repo->render_action_buttons(
+        remove_review => $self->phrase( "action_remove_review" ),
+     ) );
+
+    return $review_div;
+}
 1;

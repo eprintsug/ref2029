@@ -46,6 +46,8 @@
 
 <epp:phrase id="Plugin/Screen/EPrint/REF2029:selection_reviews">Reviews</epp:phrase>
 <epp:phrase id="Plugin/Screen/EPrint/REF2029:action_request">Request Review</epp:phrase>
+<epp:phrase id="Plugin/Screen/EPrint/REF2029:action_remove_review">Remove Review</epp:phrase>
+
 
 <!-- SelectionEdit -->
 <epp:phrase id="Plugin/Screen/REF2029/SelectionEdit:selection_title">Edit Selection: <epc:pin name="title"/></epp:phrase>
@@ -132,12 +134,10 @@
 <epp:phrase id="ref2029_review_fieldopt_rating_3">4 Stars</epp:phrase>
 <epp:phrase id="ref2029_review_fieldopt_rating_4">5 Stars</epp:phrase>
 
-
 <epp:phrase id="ref2029_review_fieldname_status">Status</epp:phrase>
 <epp:phrase id="ref2029_review_fieldopt_status_complete">Review Complete</epp:phrase>
 <epp:phrase id="ref2029_review_fieldopt_status_review_pending">Review Pending</epp:phrase>
 <epp:phrase id="ref2029_review_fieldopt_status_error">Error</epp:phrase>
-
 
 <!-- Review Submission -->
 <epp:phrase id="Plugin/Screen/REF2029_Review/Respond:title">Submit Review</epp:phrase>
