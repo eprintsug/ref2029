@@ -29,3 +29,7 @@ $c->{datasets}->{ref2029_review} = {
     class => "EPrints::DataObj::REF2029_Review",
     sqlname => "ref2029_review",
 };
+
+# New User Fields
+$c->add_dataset_field( 'user', { name => 'ref2029_uoa_champion', type => 'subject', top => 'ref2029_uoas', multiple => 1 }, reuse => 1 );
+

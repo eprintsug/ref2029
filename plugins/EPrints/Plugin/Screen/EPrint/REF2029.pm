@@ -31,7 +31,7 @@ sub can_be_viewed
 
     return 0 unless( $self->{session}->config( 'ref2029_enabled' ) && defined $self->{session}->current_user );
 
-    return 0 if !$self->{session}->current_user->has_role( 'admin' );
+    return 0 unless $self->{session}->current_user->is_set( "ref2029_uoa_champion" );
     
     return $self->allow( "eprint/hefce_oa" );
 }
@@ -49,6 +49,7 @@ sub action_create_selection
         {
             eprintid => $self->{processor}->{eprint}->id,
             title => $self->{processor}->{eprint}->value( "title" ),
+            uoa => $self->{session}->param( "uoa" ),
         }
     );
 
@@ -107,7 +108,6 @@ sub action_remove_review
     $self->{processor}->{screenid} = "EPrint::View";
 }
 
-
 sub render
 {
     my( $self ) = @_;
@@ -118,21 +118,15 @@ sub render
 
     # Selections
     my $selections = EPrints::DataObj::REF2029_Selection->search_by_eprintid( $repo, $eprint->id );
-    if( $selections->count == 0 )
-    {
-        $page->appendChild( $self->render_new_selection );
-    }
-    else
-    {
-        $page->appendChild( $self->render_selections( $selections ) );
-    }
+    $page->appendChild( $self->render_new_selection( $selections ) );
+    $page->appendChild( $self->render_selections( $selections ) );
 
     return $page;
 }
     
 sub render_new_selection
 {
-    my( $self ) = @_;
+    my( $self, $selections ) = @_;
    
     my $repo = $self->{repository};
     my $xml = $repo->xml;
@@ -140,9 +134,42 @@ sub render_new_selection
 
     my $div = $xml->create_element( "div", class => "ep_block ep_sr_component create_selection" );
 
-    $div->appendChild( $self->html_phrase( "eprint_not_selected" ) );
+    # section title
+    $div->appendChild( $self->html_phrase( "new_selection" ) );
 
+    # new selection form
     my $form = $div->appendChild( $self->render_form( "create_selection" ) );
+
+    # render drop down of available uoas
+    $form->appendChild( my $uoa_label = $xml->create_element( "label", for => "uoa" ) );
+    $uoa_label->appendChild( $self->html_phrase( "uoa_for_selection" ) );
+
+    # get user's uoas
+    my $user = $self->{session}->current_user;
+    my @user_uoas = @{$user->value( "ref2029_uoa_champion" )};
+
+    # now we have the user's uoas, remove uoas the item has already been selected for
+    my %existing_uoas;
+    if( $selections->count > 0 )
+    {
+        $selections->map(sub {
+            my ($session, undef, $selection) = @_;
+            %existing_uoas->{$selection->value( "uoa" )} = 1;
+        });       
+    }
+    my @available_uoas = grep {not $existing_uoas{$_}} @user_uoas;
+
+    my %labels;
+    foreach my $uoa ( @available_uoas )
+    {     
+        $labels{$uoa} = EPrints::DataObj::Subject->new( $repo, $uoa )->render_description;
+    }
+    $form->appendChild($repo->render_option_list(        
+            name => 'uoa',
+            values => \@available_uoas,
+            labels => \%labels
+            ) );
+
     $form->appendChild( $repo->render_action_buttons(
         create_selection => $repo->phrase( "Plugin/Screen/EPrint/REF2029:action_create_selection" ),
     ) );
@@ -160,26 +187,47 @@ sub render_selections
 
     my $div = $xml->create_element( "div", class => "ep_block ep_sr_component eprint_selections" );
 
-    $div->appendChild( $self->html_phrase( "eprint_selected" ) );
+    if( $selections->count == 0 )
+    {
+        $div->appendChild( $self->html_phrase( "no_selections" ) );
+        return $div;
+    }
+    # else.... display selections
 
+    # get user's uoas
+    my $user = $self->{session}->current_user;
+    my @user_uoas = @{$user->value( "ref2029_uoa_champion" )};
+
+    # section title
+    $div->appendChild( $self->html_phrase( "current_selections" ) );
+
+    # display selections
     $selections->map(sub {
         my ($session, undef, $selection) = @_;
 
         $div->appendChild( my $selection_div = $xml->create_element( "div", class => "ref2029_selection" ) );
 
-        # Overview
-        $selection_div->appendChild( my $overview_div = $xml->create_element( "div", class => "ref2029_selection_overview" ) );
-        $overview_div->appendChild( $selection->render_citation( "default" ) );
+        if( grep { $selection->value( "uoa" ) eq $_ } @user_uoas )
+        {
+            # Overview
+            $selection_div->appendChild( my $overview_div = $xml->create_element( "div", class => "ref2029_selection_overview" ) );
+            $overview_div->appendChild( $selection->render_citation( "default" ) );
 
-        $overview_div->appendChild( $self->render_action_list_bar(
-            "ref2029_eprint_actions", {
-                selectionid => $selection->id,
-            }
-        ) );
+            $overview_div->appendChild( $self->render_action_list_bar(
+                "ref2029_eprint_actions", {
+                    selectionid => $selection->id,
+                }
+            ) );
 
-        # Reviews
-        $selection_div->appendChild( $self->render_reviews( $selection ) );
+           # Reviews
+            $selection_div->appendChild( $self->render_reviews( $selection ) );
+        }
+        else
+        {
+            $selection_div->appendChild( $selection->render_citation( "restricted" ) );
+        }    
     });
+        
 
     return $div;
 }

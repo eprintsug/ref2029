@@ -70,8 +70,6 @@ sub action_save
 {
     my( $self ) = @_;
 
-    print STDERR "action save!!!!\n";
-
     $self->workflow->update_from_form( $self->{processor} );
     $self->uncache_workflow;
     

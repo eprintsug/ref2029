@@ -51,12 +51,24 @@
     text-align: left;
 }
 
-.ref2029_eprint_tab .create_selection div{
+.ref2029_eprint_tab .create_selection form{
+    display: block;
     margin-top: 20px;
+}
+
+.ref2029_eprint_tab .create_selection label{
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.ref2029_eprint_tab .eprint_selections{
+    text-align: left;
 }
 
 .eprint_selections .ref2029_selection{
     padding: 10px;
+    background: #f8f9fa;
+    border: 1px solid #c6c7c8;
 }
 
 .eprint_selections .ref2029_selection .ref2029_selection_overview{
@@ -65,7 +77,12 @@
     justify-content: space-between;
 }
 
+.eprint_selections .ref2029_selection h3{
+    margin: 0px;
+}
+
 .eprint_selections .ref2029_selection .ref2029_selection_overview .selection_metadata{
+    margin: 10px 0 10px 0;
     width: 50%;
     display: flex;
     flex-direction: row;

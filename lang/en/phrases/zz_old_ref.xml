@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no" ?>
+<!DOCTYPE phrases SYSTEM "entities.dtd">
+
+<epp:phrases xmlns="http://www.w3.org/1999/xhtml" xmlns:epp="http://eprints.org/ep3/phrase" xmlns:epc="http://eprints.org/ep3/control">
+
+<!-- Old REF Phrase Overrides -->
+<epp:phrase id="Plugin/Screen/REF_Support/User/EditCirc:title">Staff Circumstances (REF 2024)</epp:phrase>
+<epp:phrase id="Plugin/Screen/REF_Support/User/EditCircLink:title">Staff Circumstances (REF 2024)</epp:phrase>
+<epp:phrase id="Plugin/Screen/REF_Support/User/EditUoA:title">Assign as REF UoA Champion (REF 2024)</epp:phrase>
+<epp:phrase id="Plugin/Screen/REF_Support/User/Edit:title">Staff Information (REF 2024)</epp:phrase>
+<epp:phrase id="Plugin/Screen/REF_Support/User/ManageContracts:title">Manage Contracts (REF 2024)</epp:phrase>
+
+</epp:phrases>

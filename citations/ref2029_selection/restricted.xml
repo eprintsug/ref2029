@@ -4,12 +4,6 @@
 
 <div>
     <h3 class="selection_uoa">Selected for: <epc:print expr="uoa"/></h3>
-    <div class="selection_metadata">
-        <span class="selection_title">
-            <dt><epc:phrase ref="ref2029_selection_fieldname_title" />:</dt>
-            <dd><epc:print expr="title"/></dd>
-        </span>
-    </div>
 </div>
 
 </cite:citation>

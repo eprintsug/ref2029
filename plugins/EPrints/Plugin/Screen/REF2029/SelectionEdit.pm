@@ -28,9 +28,12 @@ sub can_be_viewed
 {
     my( $self ) = @_;
 
-    return 0 unless( $self->{session}->config( 'ref2029_enabled' ) && defined $self->{session}->current_user );
+    return 0 unless( $self->{session}->config( 'ref2029_enabled' ) && defined $self->{session}->current_user && defined $self->{processor}->{selection} );
 
-    return 0 if !$self->{session}->current_user->has_role( 'admin' );
+    return 0 unless $self->{session}->current_user->is_set( "ref2029_uoa_champion" );
+
+    my @user_uoas =  @{$self->{session}->current_user->value( "ref2029_uoa_champion" )};
+    return 0 unless ( grep { $self->{processor}->{selection}->value( "uoa" ) eq $_ } @user_uoas );
 
     return 1;
 }

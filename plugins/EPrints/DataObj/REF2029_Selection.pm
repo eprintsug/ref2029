@@ -45,6 +45,8 @@ sub get_system_field_info
 
         { name => "open_access", type => "set", options=>[qw( oa ex non_compliant )], required => 1, },
 
+        { name => "uoa", type => "subject", top => "ref2029_uoas" , required => 1, render_path => 0 },
+
         { name => "xref", type => "subject", top => "ref2029_uoas" , required => 1, },
 
         { name => "research_group", type => "text", required => 0, },

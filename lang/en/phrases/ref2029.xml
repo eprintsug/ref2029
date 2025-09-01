@@ -41,8 +41,10 @@
 <epp:phrase id="Plugin/Screen/EPrint/REF2029:title">REF2029</epp:phrase>
 <epp:phrase id="Plugin/Screen/EPrint/REF2029:action_create_selection">Select for REF 2029</epp:phrase>
 <epp:phrase id="Plugin/Screen/REF2029/SelectionEdit:title">Edit Selection</epp:phrase>
-<epp:phrase id="Plugin/Screen/EPrint/REF2029:eprint_selected">This EPrint has already been added as a selection in the active benchmark.</epp:phrase>
+<epp:phrase id="Plugin/Screen/EPrint/REF2029:new_selection"><h2>New Selection</h2></epp:phrase>
+<epp:phrase id="Plugin/Screen/EPrint/REF2029:current_selections"><h2>Current Selections</h2></epp:phrase>
 <epp:phrase id="Plugin/Screen/EPrint/REF2029:eprint_not_selected">This EPrint has not been selected for the current benchmark.</epp:phrase>
+<epp:phrase id="Plugin/Screen/EPrint/REF2029:uoa_for_selection">Add this output to a Unit of Assessment</epp:phrase>
 
 <epp:phrase id="Plugin/Screen/EPrint/REF2029:selection_reviews">Reviews</epp:phrase>
 <epp:phrase id="Plugin/Screen/EPrint/REF2029:action_request">Request Review</epp:phrase>
@@ -53,7 +55,6 @@
 <epp:phrase id="Plugin/Screen/REF2029/SelectionEdit:selection_title">Edit Selection: <epc:pin name="title"/></epp:phrase>
 <epp:phrase id="Plugin/Screen/REF2029/SelectionEdit:stop">Cancel</epp:phrase>
 <epp:phrase id="Plugin/Screen/REF2029/SelectionEdit:save">Save and Return</epp:phrase>
-
 
 <!-- Selection Workflow -->
 <epp:phrase id="ref2029_selection_fieldname_title">Title</epp:phrase>
@@ -143,5 +144,10 @@
 <epp:phrase id="Plugin/Screen/REF2029_Review/Respond:title">Submit Review</epp:phrase>
 <epp:phrase id="Plugin/Screen/REF2029_Review/Respond:save">Submit Review</epp:phrase>
 <epp:phrase id="Plugin/Screen/REF2029_Review/Respond:review_submission">Review Recieved - Thank you for submitting your review.</epp:phrase>
+
+<!-- User Workflow -->
+<epp:phrase id="user_section_ref2029">REF2029</epp:phrase>
+<epp:phrase id="user_fieldname_ref2029_uoa_champion">REF2029 UoA Champion</epp:phrase>
+<epp:phrase id="user_fieldhelp_ref2029_uoa_champion">Select the UoAs this user is able to make selections for, as well as request reviews and provide mediated reviews and scores.</epp:phrase>
 
 </epp:phrases>
