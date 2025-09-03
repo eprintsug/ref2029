@@ -43,11 +43,12 @@
 <epp:phrase id="Plugin/Screen/REF2029/SelectionEdit:title">Edit Selection</epp:phrase>
 <epp:phrase id="Plugin/Screen/EPrint/REF2029:new_selection"><h2>New Selection</h2></epp:phrase>
 <epp:phrase id="Plugin/Screen/EPrint/REF2029:current_selections"><h2>Current Selections</h2></epp:phrase>
-<epp:phrase id="Plugin/Screen/EPrint/REF2029:eprint_not_selected">This EPrint has not been selected for the current benchmark.</epp:phrase>
+<epp:phrase id="Plugin/Screen/EPrint/REF2029:no_selections">This EPrint hasn't currently been selected for any UoAs</epp:phrase>
 <epp:phrase id="Plugin/Screen/EPrint/REF2029:uoa_for_selection">Add this output to a Unit of Assessment</epp:phrase>
 
 <epp:phrase id="Plugin/Screen/EPrint/REF2029:selection_reviews">Reviews</epp:phrase>
 <epp:phrase id="Plugin/Screen/EPrint/REF2029:action_request">Request Review</epp:phrase>
+<epp:phrase id="Plugin/Screen/EPrint/REF2029:copy_review">Copy Review Link</epp:phrase>
 <epp:phrase id="Plugin/Screen/EPrint/REF2029:action_remove_review">Remove Review</epp:phrase>
 
 
@@ -102,6 +103,10 @@
 
 <epp:phrase id="ref2029_selection_fieldname_open_access">Open access</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldhelp_open_access"></epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_open_access_oa">Open Access</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_open_access_ex">Exception</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_open_access_non_compliant">Not Compliant</epp:phrase>
+
 <epp:phrase id="ref2029_selection_fieldname_xref">Request for cross-referral</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldhelp_xref"></epp:phrase>
 <epp:phrase id="ref2029_selection_fieldname_research_group">Research group</epp:phrase>

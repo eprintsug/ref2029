@@ -75,6 +75,38 @@ sub get_system_field_info
     );       
 }
 
+sub commit
+{
+    my( $self, $force ) = @_;
+
+    # this will call set_ref2029_selection_automatic_fields
+    $self->update_triggers();
+
+    if( scalar( keys %{$self->{changed}} ) == 0 )
+    {
+        # don't do anything if there isn't anything to do
+        return( 1 ) unless $force;
+    }
+
+    return $self->SUPER::commit( $force );
+}
+
+sub create_from_data
+{
+    my( $class, $session, $data, $dataset ) = @_;
+
+    my $self = $class->SUPER::create_from_data( $session, $data, $dataset );
+
+    return undef unless defined $self;
+
+    # this will call set_ref2029_selection_automatic_fields
+    $self->update_triggers();
+
+    $self->SUPER::commit();
+
+    return $self;
+}
+
 # Validation checks
 # 1) Does date fit within scope
 # 2) Does type match eprint type?

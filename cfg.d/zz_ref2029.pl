@@ -33,3 +33,25 @@ $c->{datasets}->{ref2029_review} = {
 # New User Fields
 $c->add_dataset_field( 'user', { name => 'ref2029_uoa_champion', type => 'subject', top => 'ref2029_uoas', multiple => 1 }, reuse => 1 );
 
+
+# Extra User Functionality
+{
+    package EPrints::DataObj::User;
+
+    # Permission to use UoA?
+    sub ref2029_uoa_in_scope
+    {
+        my( $self, $uoa ) = @_;
+       
+        my @user_uoas = @{$self->value( "ref2029_uoa_champion" )};
+        if( grep { $uoa eq $_ } @user_uoas )
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+
+    }
+}

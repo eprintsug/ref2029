@@ -92,3 +92,10 @@ sub set_pin
     $self->set_value( 'pin', $pin );
     return $pin;
 }
+
+sub get_review_link
+{
+    my( $self ) = @_;
+    my $repository = $self->{session}->get_repository;
+    return $repository->config("http_cgiurl")."/ref2029_review?pin=".$self->value( "pin" );
+}

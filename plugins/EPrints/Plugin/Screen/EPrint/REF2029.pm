@@ -36,7 +36,26 @@ sub can_be_viewed
     return $self->allow( "eprint/hefce_oa" );
 }
 
-sub allow_create_selection { shift->can_be_viewed }
+#sub allow_create_selection { shift->can_be_viewed }
+sub allow_create_selection
+{
+ 
+    my( $self ) = @_;
+
+    my $session = $self->{session};
+
+    # do we have permission for this UoA
+    my $uoa = $session->param( "uoa" );
+    if( $self->{session}->current_user->ref2029_uoa_in_scope( $uoa ) )
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
 
 sub action_create_selection
 {
@@ -48,7 +67,6 @@ sub action_create_selection
         $self->{session},
         {
             eprintid => $self->{processor}->{eprint}->id,
-            title => $self->{processor}->{eprint}->value( "title" ),
             uoa => $self->{session}->param( "uoa" ),
         }
     );
@@ -57,7 +75,30 @@ sub action_create_selection
     $self->{processor}->{screenid} = "REF2029::SelectionEdit";
 }
 
-sub allow_request_review { shift->can_be_viewed }
+#sub allow_request_review { shift->can_be_viewed }
+sub allow_request_review
+{
+    my( $self ) = @_;
+
+    my $session = $self->{session};
+
+    # do we have basic details?
+    return 0 unless $session->param( "reviewer" );
+    return 0 unless $session->param( "email" );
+
+    # do we have permission for this selection?
+    my $selection_ds = $session->dataset( "ref2029_selection" );
+    my $selection = $selection_ds->dataobj( $session->param( "selection" ) );
+    if( $selection && $self->{session}->current_user->ref2029_uoa_in_scope( $selection->value( "uoa" ) ) )
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
 
 sub action_request_review
 {
@@ -77,7 +118,7 @@ sub action_request_review
             email => $email,
             status => "review_pending",   
         },
-        $review_ds
+       $review_ds
     );
 
     # review has successfully been created, we can email the reviewer
@@ -184,6 +225,7 @@ sub render_selections
     my $repo = $self->{repository};
     my $xml = $repo->xml;
     my $xhtml = $repo->xhtml;
+    my $user = $self->{session}->current_user;
 
     my $div = $xml->create_element( "div", class => "ep_block ep_sr_component eprint_selections" );
 
@@ -194,10 +236,6 @@ sub render_selections
     }
     # else.... display selections
 
-    # get user's uoas
-    my $user = $self->{session}->current_user;
-    my @user_uoas = @{$user->value( "ref2029_uoa_champion" )};
-
     # section title
     $div->appendChild( $self->html_phrase( "current_selections" ) );
 
@@ -207,7 +245,7 @@ sub render_selections
 
         $div->appendChild( my $selection_div = $xml->create_element( "div", class => "ref2029_selection" ) );
 
-        if( grep { $selection->value( "uoa" ) eq $_ } @user_uoas )
+        if( $user->ref2029_uoa_in_scope( $selection->value( "uoa" ) ) )
         {
             # Overview
             $selection_div->appendChild( my $overview_div = $xml->create_element( "div", class => "ref2029_selection_overview" ) );
@@ -262,7 +300,6 @@ sub render_reviews
         $self->{processor}->{data},
     ) );
  
-
     $form->appendChild( my $email_label = $xml->create_element( "label" ) );
     $email_label->appendChild( my $email_span = $xml->create_element( "span" ) );
     $email_span->appendChild( $email_field->render_name );
@@ -302,6 +339,14 @@ sub render_review
 
     $review_div->appendChild( my $review_actions = $xml->create_element( "div", class => "ref2029_review_actions" ) );
 
+    # copy button
+    if( $review->value( "status" ) eq "review_pending" )
+    {
+        $review_actions->appendChild( my $copy_btn = $xml->create_element( "button", class => "ref2029_review_copy ep_form_action_button", 'data-text' => $review->get_review_link ) );
+        $copy_btn->appendChild( $self->html_phrase( "copy_review" ) );
+    }
+
+    # remove button
     my $form = $review_actions->appendChild( $self->render_form( "remove_review" ) );
     $form->appendChild( $repo->render_hidden_field( "review", $review->id ) );
     $form->appendChild( $repo->render_action_buttons(

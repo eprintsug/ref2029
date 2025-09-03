@@ -1,33 +1,32 @@
-<?xml version="1.0" ?>
-
+<?xml version="1.0"?>
 <cite:citation xmlns="http://www.w3.org/1999/xhtml" xmlns:cite="http://eprints.org/ep3/citation" xmlns:epc="http://eprints.org/ep3/control">
-
-<div class="review_metadata">
+  <div class="review_metadata">
     <span class="review_reviewer">
-        <dt><epc:phrase ref="ref2029_review_fieldname_reviewer" />:</dt>
-        <dd><epc:print expr="reviewer"/></dd>    
+      <dt><epc:phrase ref="ref2029_review_fieldname_reviewer"/>:</dt>
+      <dd>
+        <epc:print expr="reviewer"/>
+      </dd>
     </span>
-
     <span class="review_status">
-        <dt><epc:phrase ref="ref2029_review_fieldname_status" />:</dt>
-        <dd><epc:print expr="status"/></dd>    
-    </span>    
-</div>
-
-<epc:choose>
-        <epc:when test="status = 'review_pending'">
-                <button class="ref2029_review_copy" data-text="{$config{http_cgiurl}}/ref2029_review?pin={$item.property('pin')}">Copy Review Link</button>
-        </epc:when>
-        <epc:otherwise>
-<div class="review_content">
-    <span class="review_review">
-            <epc:print expr="review"/>
+      <dt><epc:phrase ref="ref2029_review_fieldname_status"/>:</dt>
+      <dd>
+        <epc:print expr="status"/>
+      </dd>
     </span>
-    <span class="review_rating">
-        <dt><epc:phrase ref="ref2029_review_fieldname_rating" />:</dt>
-        <dd><epc:print expr="rating"/></dd>    
-    </span>
-</div>
-</epc:otherwise>
-</epc:choose>
+  </div>
+  <epc:choose>
+    <epc:when test="status = 'complete'">
+      <div class="review_content">
+        <span class="review_review">
+          <epc:print expr="review"/>
+        </span>
+        <span class="review_rating">
+          <dt><epc:phrase ref="ref2029_review_fieldname_rating"/>:</dt>
+          <dd>
+            <epc:print expr="rating"/>
+          </dd>
+        </span>
+      </div>
+    </epc:when>
+  </epc:choose>
 </cite:citation>
