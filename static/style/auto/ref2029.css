@@ -91,12 +91,10 @@
 }
 
 .selection_metadata dt{
-    display: inline-block;
     font-weight: bold;
 }
 
 .selection_metadata dd{
-    display: inline-block;
     margin: 0;
 }
 
@@ -146,12 +144,10 @@
 }
 
 .review_metadata dt, .review_rating dt{
-   display: inline-block;
     font-weight: bold;
 }
 
 .review_metadata dd, .review_rating dd{
-    display: inline-block;
     margin: 0;
 }
 

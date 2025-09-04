@@ -28,13 +28,17 @@ sub can_be_viewed
 {
     my( $self ) = @_;
 
-    return 0 unless( $self->{session}->config( 'ref2029_enabled' ) && defined $self->{session}->current_user && defined $self->{processor}->{selection} );
-
+    return 0 unless( $self->{session}->config( 'ref2029_enabled' ) && defined $self->{session}->current_user );
+ 
     return 0 unless $self->{session}->current_user->is_set( "ref2029_uoa_champion" );
 
-    my @user_uoas =  @{$self->{session}->current_user->value( "ref2029_uoa_champion" )};
-    return 0 unless ( grep { $self->{processor}->{selection}->value( "uoa" ) eq $_ } @user_uoas );
-
+    if( defined $self->{processor}->{selection} )
+    {
+        if( !$self->{session}->current_user->ref2029_uoa_in_scope( $self->{processor}->{selection}->value( "uoa" ) ) )
+        {
+            return 0;
+        }
+    }
     return 1;
 }
 
@@ -89,7 +93,11 @@ sub screen_after_flow
 {
     my( $self ) = @_;
 
-    return "REF2029";
+    my $selection = $self->{processor}->{selection};
+    my $eprintid = $selection->value( "eprintid" );
+    $self->{processor}->{eprintid} = $eprintid;
+
+    return "EPrint::View";
 }
 
 sub render_title

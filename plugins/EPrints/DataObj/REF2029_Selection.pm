@@ -28,50 +28,6 @@ sub get_system_field_info
         { name => "eprintid", type => "itemref", datasetid => "eprint", required => 1 },
 
         { name => "benchmarkid", type => "itemref", datasetid => 'ref2029_benchmark', required => 1, },
-
-        { name => "date", type => "date", required => 1, },
-
-        { name => "type", type => "set", options=>[qw( A B C D E F G H I J K L M N O P Q R S T U V )], required => 1 },
-
-        { name => "title", type => "text", required => 1, },
-
-        { name => "hesa", type => "id", required => 1, },
-
-        { name => "doi", type => "id", required => 0, },
-
-        { name => "former_staff", type => "boolean", required => 1, },
-
-        { name => "pre_pub_link", type => "boolean", required => 1, },
-
-        { name => "open_access", type => "set", options=>[qw( oa ex non_compliant )], required => 1, },
-
-        { name => "uoa", type => "subject", top => "ref2029_uoas" , required => 1, render_path => 0 },
-
-        { name => "xref", type => "subject", top => "ref2029_uoas" , required => 1, },
-
-        { name => "research_group", type => "text", required => 0, },
-
-        { name => "research_specialism", type => "longtext", required => 0, },
-
-        { name => "num_co_authors", type => "int", required => 0, },
-
-        ##### Requires further clarification for Research England #####
-        #{ name => "disc_flags", type => ??? },
-
-        { name => "abstract", type => "longtext", required => 0 },
-
-        { name => "pending_pub", type => "boolean", required => 1 },
-
-        { name => "multi_weight", type => "int", required => 0 },
-
-        { name => "reserves", type => "itemref", datasetid => 'ref2029_selection', multiple => 1, required => 0 },
-       
-        { name => "supplementary_url", type => "url", required => 0 },
-
-        { name => "confidential", type => "longtext", required => 0 },
-
-        # Reviews
-        { name => "reviews", type => "subobject", datasetid => 'ref2029_review', multiple => 1, dataobj_fieldname => 'selectionid', dataset_fieldname => '' },
     );       
 }
 

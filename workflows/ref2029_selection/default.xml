@@ -7,6 +7,11 @@
   </flow>
 
   <stage name="main">
+
+    <component>
+      <field ref="rating"/>
+    </component>
+
     <component type="Field::Multi">
       <title>EPrint Details</title>
       <field ref="title" />
