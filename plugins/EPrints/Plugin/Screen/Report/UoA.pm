@@ -78,7 +78,7 @@ sub validate_dataobj
 
     my @problems;
 
-    if( !$selection->is_set( "rating" ) )
+    if( !$selection->is_set( "rating" ) || ( $selection->is_set( "rating" ) && $selection->value( "rating" ) eq "NONE" ) )
     {
         push @problems, $repo->phrase( "ref2029_selection:test:no_score" );
     }

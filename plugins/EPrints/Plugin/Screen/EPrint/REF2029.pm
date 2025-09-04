@@ -195,7 +195,7 @@ sub render_new_selection
     {
         $selections->map(sub {
             my ($session, undef, $selection) = @_;
-            %existing_uoas->{$selection->value( "uoa" )} = 1;
+            $existing_uoas{$selection->value( "uoa" )} = 1;
         });       
     }
     my @available_uoas = grep {not $existing_uoas{$_}} @user_uoas;
