@@ -4,5 +4,6 @@
 <epp:phrases xmlns="http://www.w3.org/1999/xhtml" xmlns:epp="http://eprints.org/ep3/phrase" xmlns:epc="http://eprints.org/ep3/control">
 
 <epp:phrase id="Plugin/Screen/Report/UoA/A01:icon">article</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/A02:icon">article</epp:phrase>
 
 </epp:phrases>

@@ -163,12 +163,17 @@
 
 <!-- User Workflow -->
 <epp:phrase id="user_section_ref2029">REF2029</epp:phrase>
+
+<epp:phrase id="user_fieldname_ref2029_uoa">REF2029 UoA</epp:phrase>
+<epp:phrase id="user_fieldhelp_ref2029_uoa">Select the UoA this user works within. This will help retrieve outputs eligible for selection to a UoA.</epp:phrase>
+
 <epp:phrase id="user_fieldname_ref2029_uoa_champion">REF2029 UoA Champion</epp:phrase>
 <epp:phrase id="user_fieldhelp_ref2029_uoa_champion">Select the UoAs this user is able to make selections for, as well as request reviews and provide mediated reviews and scores.</epp:phrase>
 
 <!-- Reports -->
 <epp:phrase id="Plugin/Screen/Report/UoA:title">Unit of Assessment Selections</epp:phrase>
 <epp:phrase id="Plugin/Screen/Report/UoA/A01:title">A01 Clinical Medicine</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/A02:title">A02 Public Health, Health Services and Primary Care</epp:phrase>
 
 <epp:phrase id="ref2029_selection:test:no_score">No Mediated Score Provided</epp:phrase>
 <epp:phrase id="ref2029_selection:test:pending_review">Awaiting review response from: <epc:pin name="name"/></epp:phrase>

@@ -38,7 +38,46 @@ sub can_be_viewed
 
     return 0 if( !$self->SUPER::can_be_viewed );
 
-    return $self->allow( 'report/hefce_oa' );
+    return 0 unless( $self->{session}->config( 'ref2029_enabled' ) && defined $self->{session}->current_user );
+
+    return 0 unless $self->{session}->current_user->is_set( "ref2029_uoa_champion" );
+
+    return 0 unless defined $self->{uoa};
+
+    # do we have permission for this UoA   
+    if( $self->{session}->current_user->ref2029_uoa_in_scope( $self->{uoa} ) )
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+
+    return 1;
+}
+
+sub items
+{
+    my( $self ) = @_;
+
+    my $selection_ds = $self->repository->dataset( "ref2029_selection" );
+
+    my $search_exp = EPrints::Search->new(
+        session => $self->repository,
+        satisfy_all => 1,
+        dataset => $selection_ds,
+    );
+
+    $search_exp->add_field(
+        fields => [ $selection_ds->field( 'uoa' ) ],
+        value => $self->{uoa},
+        match => "EX",
+    );
+
+    my $list = $search_exp->perform_search;
+
+    return $list;
 }
 
 sub ajax_ref2029_selection

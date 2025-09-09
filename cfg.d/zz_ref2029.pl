@@ -11,6 +11,7 @@ $c->{plugins}{"Screen::REF2029_Review::Respond"}{params}{disable} = 0;
 # Enable the Reports
 $c->{plugins}{"Screen::Report::UoA"}{params}{disable} = 0;
 $c->{plugins}{"Screen::Report::UoA::A01"}{params}{disable} = 0;
+$c->{plugins}{"Screen::Report::UoA::A02"}{params}{disable} = 0;
 
 
 # REF2029 Benchmarks
@@ -19,7 +20,6 @@ $c->{datasets}->{ref2029_benchmark} = {
     class => "EPrints::DataObj::REF2029_Benchmark",
     sqlname => "ref2029_benchmark",
 };
-
 
 # REF2029 Selections
 use EPrints::DataObj::REF2029_Selection;
@@ -64,6 +64,8 @@ $c->{datasets}->{ref2029_review} = {
 };
 
 # New User Fields
+$c->add_dataset_field( 'user', { name => 'ref2029_uoa', type => 'subject', top => 'ref2029_uoas' }, reuse => 1 );
+
 $c->add_dataset_field( 'user', { name => 'ref2029_uoa_champion', type => 'subject', top => 'ref2029_uoas', multiple => 1 }, reuse => 1 );
 
 
