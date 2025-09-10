@@ -171,6 +171,9 @@
 <epp:phrase id="user_fieldhelp_ref2029_uoa_champion">Select the UoAs this user is able to make selections for, as well as request reviews and provide mediated reviews and scores.</epp:phrase>
 
 <!-- Reports -->
+<epp:phrase id="Plugin/Screen/Report/REF2029AddSelection:title">REF2029 Selections</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/REF2029AddSelection:uoa_for_selection">Unit of Assessment: </epp:phrase>
+
 <epp:phrase id="Plugin/Screen/Report/UoA:title">Unit of Assessment Selections</epp:phrase>
 <epp:phrase id="Plugin/Screen/Report/UoA/A01:title">A01 Clinical Medicine</epp:phrase>
 <epp:phrase id="Plugin/Screen/Report/UoA/A02:title">A02 Public Health, Health Services and Primary Care</epp:phrase>

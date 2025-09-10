@@ -8,12 +8,6 @@ $c->{plugins}{"Screen::REF2029::BenchmarkEdit"}{params}{disable} = 0;
 $c->{plugins}{"Screen::REF2029::SelectionEdit"}{params}{disable} = 0;
 $c->{plugins}{"Screen::REF2029_Review::Respond"}{params}{disable} = 0;
 
-# Enable the Reports
-$c->{plugins}{"Screen::Report::UoA"}{params}{disable} = 0;
-$c->{plugins}{"Screen::Report::UoA::A01"}{params}{disable} = 0;
-$c->{plugins}{"Screen::Report::UoA::A02"}{params}{disable} = 0;
-
-
 # REF2029 Benchmarks
 use EPrints::DataObj::REF2029_Benchmark;
 $c->{datasets}->{ref2029_benchmark} = {

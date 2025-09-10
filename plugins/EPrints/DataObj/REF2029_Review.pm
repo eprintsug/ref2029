@@ -97,5 +97,5 @@ sub get_review_link
 {
     my( $self ) = @_;
     my $repository = $self->{session}->get_repository;
-    return $repository->config("http_cgiurl")."/ref2029_review?pin=".$self->value( "pin" );
+    return $repository->config("http_cgiurl")."/ref2029/review?pin=".$self->value( "pin" );
 }

@@ -1,0 +1,82 @@
+#!/usr/bin/perl
+
+=head1 NAME
+
+title_duplicates - warn of duplicate entries based on title
+
+=head1 SYNOPSIS
+
+=head1 DESCRIPTION
+
+Provides a warning box for any other eprints where q prefixes the title.
+
+=cut
+
+use EPrints;
+
+use strict;
+use warnings;
+
+my $eprints = EPrints->new;
+my $session = $eprints->current_repository;
+
+unless( defined $session )
+{
+    send_error( $session ); 
+    exit( 0 );
+}
+
+unless( $session->config( 'ref2029_enabled' ) && defined $session->current_user )
+{
+    send_error( $session ); 
+    exit( 0 );
+}
+
+unless( $session->current_user->is_set( "ref2029_uoa_champion" ) )
+{
+    send_error( $session ); 
+    exit( 0 );
+}
+
+my $uoa = $session->param( 'uoa' );
+
+unless( $session->current_user->ref2029_uoa_in_scope( $uoa ) )
+{
+    send_error( $session ); 
+    exit( 0 );
+}
+
+my $eprintid = $session->param( 'eprintid' );
+my $eprint = $session->dataset( 'eprint' )->dataobj( $eprintid );
+if( !defined $eprint )
+{
+    send_error( $session ); 
+    exit( 0 );
+}
+
+# we're good to go and make the selection
+$session->send_http_header( content_type=>"text/html; charset=UTF-8" );
+
+my $selection_ds = $session->dataset( "ref2029_selection" );
+my $selection = $selection_ds->dataobj_class->create_from_data(
+    $session,
+    {
+        eprintid => $eprintid,
+        uoa => $uoa,
+    }
+);
+
+my $selection_citation = $selection->render_citation( "restricted" );
+print EPrints::XML::to_string( $selection_citation, "utf-8", 1 );
+
+$session->terminate;
+
+exit;
+
+sub send_error
+{
+    my( $session ) = @_;
+
+    $session->get_request->status( 401 );
+    $session->terminate;
+}
