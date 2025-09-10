@@ -72,7 +72,7 @@ sub action_create_selection
     );
 
     $self->{processor}->{selectionid} = $selection->id;
-    $self->{processor}->{screenid} = "REF2029::SelectionEdit";
+    $self->{processor}->{screenid} = "REF2029_Selection::Edit";
 }
 
 #sub allow_request_review { shift->can_be_viewed }
@@ -249,7 +249,7 @@ sub render_selections
         {
             # Overview
             $selection_div->appendChild( my $overview_div = $xml->create_element( "div", class => "ref2029_selection_overview" ) );
-            $overview_div->appendChild( $selection->render_citation( "default" ) );
+            $overview_div->appendChild( $selection->render_citation( "eprint_view" ) );
 
             $overview_div->appendChild( $self->render_action_list_bar(
                 "ref2029_eprint_actions", {

@@ -2,9 +2,8 @@
 
 <cite:citation xmlns="http://www.w3.org/1999/xhtml" xmlns:cite="http://eprints.org/ep3/citation" xmlns:epc="http://eprints.org/ep3/control">
 
-    <!-- Just print the citation for the reports -->
-    <epc:print expr="eprintid"/>
-    
-    <div>Selected for <epc:print expr="uoa"/></div>
+<div>
+    <span class="selection_uoa">Selected for: <epc:print expr="uoa"/></span>
+</div>
 
 </cite:citation>

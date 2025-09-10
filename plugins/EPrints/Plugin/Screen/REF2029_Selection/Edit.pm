@@ -1,8 +1,8 @@
-package EPrints::Plugin::Screen::REF2029::SelectionEdit;
+package EPrints::Plugin::Screen::REF2029_Selection::Edit;
 
-use EPrints::Plugin::Screen;
+use EPrints::Plugin::Screen::REF2029_Selection;
 
-@ISA = ( 'EPrints::Plugin::Screen' );
+@ISA = ( 'EPrints::Plugin::Screen::REF2029_Selection' );
 
 use strict;
 
@@ -22,24 +22,6 @@ sub new
     ],
 
     return $self;
-}
-
-sub can_be_viewed
-{
-    my( $self ) = @_;
-
-    return 0 unless( $self->{session}->config( 'ref2029_enabled' ) && defined $self->{session}->current_user );
- 
-    return 0 unless $self->{session}->current_user->is_set( "ref2029_uoa_champion" );
-
-    if( defined $self->{processor}->{selection} )
-    {
-        if( !$self->{session}->current_user->ref2029_uoa_in_scope( $self->{processor}->{selection}->value( "uoa" ) ) )
-        {
-            return 0;
-        }
-    }
-    return 1;
 }
 
 sub from
@@ -92,10 +74,6 @@ sub action_save
 sub screen_after_flow
 {
     my( $self ) = @_;
-
-    my $selection = $self->{processor}->{selection};
-    my $eprintid = $selection->value( "eprintid" );
-    $self->{processor}->{eprintid} = $eprintid;
 
     return "EPrint::View";
 }
@@ -179,31 +157,6 @@ sub uncache_workflow
     my( $self ) = @_;
     delete $self->{processor}->{workflow};
     delete $self->{processor}->{workflow_staff};
-}
-
-sub properties_from
-{
-    my( $self ) = @_;
-
-    my $dataset = $self->{processor}->{dataset} = $self->{session}->dataset( "ref2029_selection" );
-
-    my $selectionid = $self->{session}->param( "selectionid" );
-    $self->{processor}->{selectionid} = $selectionid;
-    $self->{processor}->{selection} = $dataset->dataobj( $selectionid );
-
-    if( !defined $self->{processor}->{selection} )
-    {
-        $self->{processor}->{screenid} = "Error";
-        $self->{processor}->add_message( "error",
-            $self->html_phrase(
-                "no_such_selection",
-                id => $self->{session}->make_text(
-                    $self->{processor}->{selectionid}
-                ) 
-            )
-        );
-        return;
-    }
 }
 
 sub redirect_to_me_url

@@ -17,6 +17,18 @@ sub get_dataset_id
     return "ref2029_selection";
 }
 
+sub get_parent_dataset_id
+{
+    "eprint";
+}
+
+sub get_parent_id
+{
+    my( $self ) = @_;
+
+    return $self->get_value( "eprintid" );
+}
+
 sub get_system_field_info
 {
     my( $class ) = @_;
@@ -61,6 +73,21 @@ sub create_from_data
     $self->SUPER::commit();
 
     return $self;
+}
+
+sub remove
+{
+    my( $self ) = @_;
+
+    # Remove our subobjects, in this case any reviews
+    foreach my $review ( @{($self->get_value( "reviews" ))} )
+    {
+        $review->remove;
+    }
+
+    my $success = $self->SUPER::remove();
+
+    return $success;
 }
 
 # Validation checks

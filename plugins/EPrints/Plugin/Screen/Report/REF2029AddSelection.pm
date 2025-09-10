@@ -16,7 +16,7 @@ sub new
         $self->{searchdatasetid} = 'archive';
         $self->{sconf} = 'ref2029_add_selection';
         $self->{export_conf} = 'ref2029_add_selection';
-
+        $self->{appears} = [];
         $self->{show_compliance} = 0;
 
         return $self;

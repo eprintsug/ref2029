@@ -17,6 +17,18 @@ sub get_dataset_id
     return "ref2029_review";
 }
 
+sub get_parent_dataset_id
+{
+    "ref2029_selection";
+}
+
+sub get_parent_id
+{
+    my( $self ) = @_;
+
+    return $self->get_value( "selectionid" );
+}
+
 sub get_system_field_info
 {
     my( $class ) = @_;
