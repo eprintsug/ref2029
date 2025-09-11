@@ -144,7 +144,7 @@ sub ajax_eprint
 
             return if !defined $eprint; # odd
 
-            my $frag = $eprint->render_citation_link;
+            my $frag = $eprint->render_citation_link_staff;
             push @{$json->{data}}, {
                 datasetid => $eprint->dataset->base_id,
                 dataobjid => $eprint->id,
@@ -183,7 +183,7 @@ sub bullet_points
     $selections->map(sub {
         my ($session, undef, $selection) = @_;
         $existing_uoas{$selection->value( "uoa" )} = 1;
-        push @bullets, $selection->render_citation( "restricted" );    
+        push @bullets, $selection->render_citation( "addselection_report" );
     });
 
     my @available_uoas = grep {not $existing_uoas{$_}} @{$self->{processor}->{user_uoas}};
