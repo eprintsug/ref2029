@@ -31,6 +31,13 @@ $c->{set_ref2029_selection_automatic_fields} = sub
 
     my $session = $selection->{session};
 
+    # Benchmark
+    if( !$selection->is_set( "benchmarkid" ) )
+    {
+        my $benchmark = EPrints::DataObj::REF2029_Benchmark->active( $session );
+        $selection->set_value( "benchmarkid", $benchmark->id ) if defined $benchmark;
+    }
+
     # get the eprint this selection is about
     my $eprint_field = $selection->dataset->field( "eprintid" );
     my $eprint = $eprint_field->get_item( $session, $selection->value( "eprintid" ) );

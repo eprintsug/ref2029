@@ -30,3 +30,18 @@ sub get_dataset_id
     my ($self) = @_;
     return "ref2029_benchmark";
 }
+
+=item my $benchmark = EPrints::DataObj::REF2029_Benchmark->active( $session );
+
+Returns the active Benchmark
+
+=cut
+sub active
+{
+    my( $class, $repo ) = @_;
+
+    return $repo->dataset( $class->get_dataset_id )->search(
+        filters => [
+            { meta_fields => [qw( status )], value => "active", },
+        ])->item( 0 );
+}
