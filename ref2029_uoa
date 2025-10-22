@@ -1,0 +1,45 @@
+ref2029_uoas:REF2029 Units of Assessment:ROOT:0
+ref2029_z:Z - Unaffiliated:ref2029_uoas:1
+
+ref2029_a:Main panel A:ref2029_uoas:0
+ref2029_a1:A01 Clinical Medicine:ref2029_a:1
+ref2029_a2:A02 Public Health, Health Services and Primary Care:ref2029_a:1
+ref2029_a3:A03 Allied Health Professions, Dentistry, Nursing and Pharmacy:ref2029_a:1
+ref2029_a4:A04 Psychology, Psychiatry and Neuroscience:ref2029_a:1
+ref2029_a5:A05 Biological Sciences:ref2029_a:1
+ref2029_a6:A06 Agriculture, Veterinary and Food Science:ref2029_a:1
+
+ref2029_b:Main panel B:ref2029_uoas:0
+ref2029_b7:B07 Earth Systems and Environmental Sciences:ref2029_b:1
+ref2029_b8:B08 Chemistry:ref2029_b:1
+ref2029_b9:B09 Physics:ref2029_b:1
+ref2029_b10:B10 Mathematical Sciences:ref2029_b:1
+ref2029_b11:B11 Computer Science and Informatics:ref2029_b:1
+ref2029_b12:B12 Engineering:ref2029_b:1
+
+ref2029_c:Main panel C:ref2029_uoas:0
+ref2029_c13:C13 Architecture, Built Environment and Planning:ref2029_c:1
+ref2029_c14:C14 Geography and Environmental Studies:ref2029_c:1
+ref2029_c15:C15 Archaeology:ref2029_c:1
+ref2029_c16:C16 Economics and Econometrics:ref2029_c:1
+ref2029_c17:C17 Business and Management Studies:ref2029_c:1
+ref2029_c18:C18 Law:ref2029_c:1
+ref2029_c19:C19 Politics and International Studies:ref2029_c:1
+ref2029_c20:C20 Social Work and Social Policy:ref2029_c:1
+ref2029_c21:C21 Sociology:ref2029_c:1
+ref2029_c22:C22 Anthropology and Development Studies:ref2029_c:1
+ref2029_c23:C23 Education:ref2029_c:1
+ref2029_c24:C24 Sport and Exercise Sciences, Leisure and Tourism:ref2029_c:1
+
+ref2029_d:Main panel D:ref2029_uoas:0
+ref2029_d25:D25 Area Studies:ref2029_d:1
+ref2029_d26:D26 Modern Languages and Linguistics:ref2029_d:1
+ref2029_d27:D27 English Language and Literature:ref2029_d:1
+ref2029_d28:D28 History:ref2029_d:1
+ref2029_d29:D29 Classics:ref2029_d:1
+ref2029_d30:D30 Philosophy:ref2029_d:1
+ref2029_d31:D31 Theology and Religious Studies:ref2029_d:1
+ref2029_d32:D32 Art and Design - History, Practice and Theory:ref2029_d:1
+ref2029_d33:D33 Music, Drama, Dance, Performing Arts, Film and Screen Studies:ref2029_d:1
+ref2029_d34:D34 Communication, Cultural and Media Studies, Library and Information Management:ref2029_d:1
+
