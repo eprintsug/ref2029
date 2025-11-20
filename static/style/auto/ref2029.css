@@ -168,6 +168,10 @@
     justify-content: space-between;
 }
 
+.ref2029_review_pending_actions ul{
+    margin-left: .5em;
+}
+
 /*** Reports ***/
 #ep_report_ref2029_add_selection_container .ep_report_row_bullets li:last-child{
     list-style: none;

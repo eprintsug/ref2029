@@ -16,7 +16,7 @@ sub new
 
     $self->{appears} = [
         {
-            place => "ref2029_review_actions",
+            place => "ref2029_review_admin_actions",
             position => 101,
         }
     ],

@@ -340,16 +340,27 @@ sub render_review
 
     $review_div->appendChild( my $review_actions = $xml->create_element( "div", class => "ref2029_review_actions" ) );
 
-    # copy button
+    #review pending actions (i.e. link copying, review chasing)
     if( $review->value( "status" ) eq "review_pending" )
     {
-        $review_actions->appendChild( my $copy_btn = $xml->create_element( "button", class => "ref2029_review_copy ep_form_action_button", 'data-text' => $review->get_review_link ) );
+        $review_actions->appendChild( my $pending_actions = $xml->create_element( "div", class => "ref2029_review_pending_actions" ) );
+
+        # copy button
+        $pending_actions->appendChild( my $copy_btn = $xml->create_element( "button", class => "ref2029_review_copy ep_form_action_button", 'data-text' => $review->get_review_link ) );
         $copy_btn->appendChild( $self->html_phrase( "copy_review" ) );
+ 
+        # reminder button
+        $pending_actions->appendChild( $self->render_action_list_bar(
+            "ref2029_review_pending_actions", {
+                reviewid => $review->id,
+            }
+        ) );
     }
 
-    # review actions
-    $review_actions->appendChild( $self->render_action_list_bar(
-        "ref2029_review_actions", {
+    # review admin actions (i.e. editing removing)
+    $review_actions->appendChild( my $admin_actions = $xml->create_element( "div", class => "ref2029_review_admin_actions" ) );
+    $admin_actions->appendChild( $self->render_action_list_bar(
+        "ref2029_review_admin_actions", {
             reviewid => $review->id,
         }
     ) );
