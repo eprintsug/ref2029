@@ -10,7 +10,7 @@ sub new
 
     my $self = $class->SUPER::new(%params);
 
-    $self->{actions} = [qw/ create_selection request_review remove_review /];
+    $self->{actions} = [qw/ create_selection request_review /];
 
     $self->{appears} = [
         {
@@ -127,25 +127,6 @@ sub action_request_review
            
     }
 
-    $self->{processor}->{screenid} = "EPrint::View";
-}
-
-sub allow_remove_review { shift->can_be_viewed }
-
-sub action_remove_review
-{
-    my( $self ) = @_;
-
-    my $session = $self->{session};
-    my $review_ds = $session->dataset( "ref2029_review" );
-
-    my $review_id = $session->param( "review" );
-    my $review = $review_ds->dataobj( $review_id );
-    if( defined $review ) 
-    {
-        $review->remove;
-    }
-    
     $self->{processor}->{screenid} = "EPrint::View";
 }
 
@@ -346,12 +327,12 @@ sub render_review
         $copy_btn->appendChild( $self->html_phrase( "copy_review" ) );
     }
 
-    # remove button
-    my $form = $review_actions->appendChild( $self->render_form( "remove_review" ) );
-    $form->appendChild( $repo->render_hidden_field( "review", $review->id ) );
-    $form->appendChild( $repo->render_action_buttons(
-        remove_review => $self->phrase( "action_remove_review" ),
-     ) );
+    # review actions
+    $review_actions->appendChild( $self->render_action_list_bar(
+        "ref2029_review_actions", {
+            reviewid => $review->id,
+        }
+    ) );
 
     return $review_div;
 }
