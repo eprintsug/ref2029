@@ -124,7 +124,27 @@ sub action_request_review
     # review has successfully been created, we can email the reviewer
     if( $review )
     {
-           
+        my $mail = $session->make_element( "mail" );
+        $mail->appendChild( $session->html_phrase(
+            "ref2029/request_review:body",
+            eprint_citation => $self->{processor}->{eprint}->render_citation_link,
+            review_link => $session->render_link( $review->get_review_link ),
+        ) );
+       
+        my $result = EPrints::Email::send_mail(
+            session => $session,
+            langid => $session->get_langid,
+            to_name => $reviewer,
+            to_email => $email,
+            subject => $session->phrase( "ref2029/request_review:subject" ),
+            message => $mail,
+            sig => $session->html_phrase( "mail_sig" ),
+        );     
+
+        if( !$result )
+        {
+            $self->{processor}->add_message( "error", $session->html_phrase( "ref2029/request_review:email_failed" ) );
+        }
     }
 
     $self->{processor}->{screenid} = "EPrint::View";
