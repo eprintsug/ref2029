@@ -49,7 +49,7 @@ $c->add_dataset_field( 'ref2029_selection', { name => "reserves", type => "itemr
 $c->add_dataset_field( 'ref2029_selection', { name => "supplementary_url", type => "url", required => 0 }, reuse => 1 );
 $c->add_dataset_field( 'ref2029_selection', { name => "confidential", type => "longtext", required => 0 }, reuse => 1 );
 $c->add_dataset_field( 'ref2029_selection', { name => "reviews", type => "subobject", datasetid => 'ref2029_review', multiple => 1, dataobj_fieldname => 'selectionid', dataset_fieldname => '' }, reuse => 1 );
-$c->add_dataset_field( 'ref2029_selection', { name => "rating", type => "set", required => 1, input_rows => 1, options => [qw( NONE 0 1 2 3 4 )] }, reuse => 1 );
+$c->add_dataset_field( 'ref2029_selection', { name => "rating", type => "set", required => 1, input_rows => 1, options => [qw( NONE 1 2 3 4 )] }, reuse => 1 );
 
 
 # REF2029 Reviews
@@ -58,6 +58,11 @@ $c->{datasets}->{ref2029_review} = {
     class => "EPrints::DataObj::REF2029_Review",
     sqlname => "ref2029_review",
 };
+
+# REF2029 Review Fields
+$c->add_dataset_field( 'ref2029_review', { name => "rating", type => "set", required => 0, input_rows => 1, options => [qw( NONE 1 2 3 4 )] }, reuse => 1 );
+$c->add_dataset_field( 'ref2029_review', { name => "review", type => "longtext", required => 0 }, reuse => 1 );
+
 
 # New User Fields
 $c->add_dataset_field( 'user', { name => 'ref2029_uoa', type => 'subject', top => 'ref2029_uoas' }, reuse => 1 );

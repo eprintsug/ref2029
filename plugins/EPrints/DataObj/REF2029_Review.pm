@@ -43,10 +43,6 @@ sub get_system_field_info
 
         { name => "email", type => "email", required => 0, },
 
-        { name => "review", type => "longtext", required => 0 },
-
-        { name => "rating", type => "set", options => [0, 1, 2, 3, 4], required => 0 },
-
         { name => "pin", type => "text", required => 0 },
 
         { name => "status", type => "set", multiple => 0, required => 0, options=>[
