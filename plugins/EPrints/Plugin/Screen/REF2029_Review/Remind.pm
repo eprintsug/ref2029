@@ -103,7 +103,7 @@ sub action_remind
         langid => $session->get_langid,
         to_name => $review->value( "reviewer" ),
         to_email => $review->value( "email" ),
-        subject => $session->phrase( "ref2029/request_remind:subject" ),
+        subject => $session->phrase( "ref2029/remind_review:subject" ),
         message => $mail,
         sig => $session->html_phrase( "mail_sig" ),
     );
