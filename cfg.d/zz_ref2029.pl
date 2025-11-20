@@ -31,6 +31,7 @@ $c->add_dataset_field( 'ref2029_selection', { name => "hesa", type => "id", requ
 $c->add_dataset_field( 'ref2029_selection', { name => "doi", type => "id", required => 0, }, reuse => 1 );
 $c->add_dataset_field( 'ref2029_selection', { name => "former_staff", type => "boolean", required => 1, }, reuse => 1 );
 $c->add_dataset_field( 'ref2029_selection', { name => "pre_pub_link", type => "boolean", required => 1, }, reuse => 1 );
+$c->add_dataset_field( 'ref2029_selection', { name => "link_note", type => "longtext", required => 0, }, reuse => 1 );
 $c->add_dataset_field( 'ref2029_selection', { name => "open_access", type => "set", options=>[qw( oa ex non_compliant )], required => 1, }, reuse => 1 );
 $c->add_dataset_field( 'ref2029_selection', { name => "uoa", type => "subject", top => "ref2029_uoas" , required => 1, render_path => 0 }, reuse => 1 );
 $c->add_dataset_field( 'ref2029_selection', { name => "xref", type => "subject", top => "ref2029_uoas" , required => 1, }, reuse => 1 );

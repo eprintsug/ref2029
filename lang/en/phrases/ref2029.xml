@@ -54,6 +54,17 @@
 
 
 <!-- SelectionEdit -->
+<epp:phrase id="Plugin/Screen/REF2029_Selection/Edit:selection_intro">
+<p>Enter details for the REF Selection here. This form is split into four sections:</p>
+<ol>
+    <li><strong>Mediated Rating</strong> - The final score given to this output based on the reviews.</li>
+    <li><strong>Eprint Details</strong> - Details about the output, derived from the EPrint record.</li>
+    <li><strong>Substantive Link</strong> - Details concerning a researcher's link to the output which makes it eligible for REF submission.</li>
+    <li><strong>Submission Details</strong> - REF 2029 specific metadata that helps describe the submission.</li>
+</ol>
+<p>For further details about the metadata required and submitted for REF Selections, please see: <a href="https://2029.ref.ac.uk/guidance/section-4-contributions-to-knowledge-and-understanding-cku-guidance/" target="_blank">Section 4 - Contributions to Knowledge and Understanding (CKU) guidance</a>.</p>
+</epp:phrase>
+
 <epp:phrase id="Plugin/Screen/REF2029_Selection/Edit:selection_title">Edit Selection: <epc:pin name="title"/></epp:phrase>
 <epp:phrase id="Plugin/Screen/REF2029_Selection/Edit:stop">Cancel</epp:phrase>
 <epp:phrase id="Plugin/Screen/REF2029_Selection/Edit:save">Save and Return</epp:phrase>
@@ -77,26 +88,26 @@
 <epp:phrase id="ref2029_selection_fieldname_type">Type</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldhelp_type"></epp:phrase>
 
-<epp:phrase id="ref2029_selection_fieldopt_type_A">A</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_B">B</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_C">C</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_D">D</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_E">E</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_F">F</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_A">A - Authored Book</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_B">B - Edited Book</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_C">C - Chapter in Book</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_D">D - Journal Article</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_E">E - Conference Contribution</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_F">F - Patent</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_G">G</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_H">H</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_I">I</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_J">J</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_I">I - Performance</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_J">J - Composition</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_K">K</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_L">L</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_M">M</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_L">L - Artefact</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_M">M - Exhibition</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_N">N</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_O">O</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_P">P</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_Q">Q</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_Q">Q - Video</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_R">R</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_S">S</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_T">T</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_T">T - Other</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_U">U</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_V">V</epp:phrase>
 
@@ -108,7 +119,9 @@
 <epp:phrase id="ref2029_selection_fieldname_former_staff">Former staff</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldhelp_former_staff"></epp:phrase>
 <epp:phrase id="ref2029_selection_fieldname_pre_pub_link">Pre-publication substantive link</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldhelp_pre_pub_link"></epp:phrase>H
+<epp:phrase id="ref2029_selection_fieldhelp_pre_pub_link"></epp:phrase>
+<epp:phrase id="ref2029_selection_fieldname_link_note">Substantive Link Notes</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldhelp_link_note"></epp:phrase>
 
 <epp:phrase id="ref2029_selection_fieldname_open_access">Open access</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldhelp_open_access"></epp:phrase>

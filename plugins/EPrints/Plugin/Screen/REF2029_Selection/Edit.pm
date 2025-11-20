@@ -93,13 +93,21 @@ sub render
 {
     my( $self ) = @_;
 
-    my $form = $self->render_form;
+    my $repo = $self->{repository};
+    my $xml = $repo->xml;
+    my $frag = $xml->create_document_fragment;
+
+    # Intro
+    $frag->appendChild( $self->html_phrase( "selection_intro" ) );
+
+    # Form
+    $frag->appendChild( my $form = $self->render_form );
 
     $form->appendChild( $self->render_buttons );
     $form->appendChild( $self->workflow->render );
     $form->appendChild( $self->render_buttons );
 
-    return $form;
+    return $frag;
 }
 
 sub render_buttons
