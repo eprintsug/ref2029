@@ -73,6 +73,7 @@ $c->add_dataset_field( 'user', { name => 'ref2029_uoa_champion', type => 'subjec
 # Extra User Functionality
 {
     package EPrints::DataObj::User;
+    no warnings 'redefine';
 
     # Permission to use UoA?
     sub ref2029_uoa_in_scope
