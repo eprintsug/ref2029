@@ -246,6 +246,40 @@
 <epp:phrase id="Plugin/Screen/Report/UoA:title">Unit of Assessment Selections</epp:phrase>
 <epp:phrase id="Plugin/Screen/Report/UoA/A01:title">A01 Clinical Medicine</epp:phrase>
 <epp:phrase id="Plugin/Screen/Report/UoA/A02:title">A02 Public Health, Health Services and Primary Care</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/A03:title">A03 Allied Health Professions, Dentistry, Nursing and Pharmacy</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/A04:title">A04 Psychology, Psychiatry and Neuroscience</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/A05:title">A05 Biological Sciences</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/A06:title">A06 Agriculture, Veterinary and Food Science</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/B07:title">B07 Earth Systems and Environmental Sciences</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/B08:title">B08 Chemistry</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/B09:title">B09 Physics</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/B10:title">B10 Mathematical Sciences</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/B11:title">B11 Computer Science and Informatics</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/B12:title">B12 Engineering</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/C13:title">C13 Architecture, Built Environment and Planning</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/C14:title">C14 Geography and Environmental Studies</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/C15:title">C15 Archaeology</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/C16:title">C16 Economics and Econometrics</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/C17:title">C17 Business and Management Studies</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/C18:title">C18 Law</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/C19:title">C19 Politics and International Studies</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/C20:title">C20 Social Work and Social Policy</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/C21:title">C21 Sociology</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/C22:title">C22 Anthropology and Development Studies</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/C23:title">C23 Education</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/C24:title">C24 Sport and Exercise Sciences, Leisure and Tourism</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/D25:title">D25 Area Studies</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/D26:title">D26 Modern Languages and Linguistics</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/D27:title">D27 English Language and Literature</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/D28:title">D28 History</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/D29:title">D29 Classics</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/D30:title">D30 Philosophy</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/D31:title">D31 Theology and Religious Studies</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/D32:title">D32 Art and Design - History, Practice and Theory</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/D33:title">D33 Music, Drama, Dance, Performing Arts, Film and Screen Studies</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/D34:title">D34 Communication, Cultural and Media Studies, Library and Information Management</epp:phrase>
+<epp:phrase id="Plugin/Screen/Report/UoA/Z:title">Z - Unaffiliated</epp:phrase>
+
 
 <epp:phrase id="ref2029_selection:test:no_score">No Mediated Score Provided</epp:phrase>
 <epp:phrase id="ref2029_selection:test:pending_review">Awaiting review response from: <epc:pin name="name"/></epp:phrase>
