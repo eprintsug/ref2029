@@ -55,58 +55,57 @@ sub render
     my $chunk = $self->SUPER::render();
 
     $chunk->appendChild( $repo->make_javascript( <<JS ) );
-Event.observe(window, 'load', function() {
-    var buttons = document.querySelectorAll("input[type=button][name=new_selection]");
-    buttons.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-                
-            // get eprintid from hidden sibling input element
-            var div = this.parentNode;
-            var eprintid = div.querySelector("input[type=hidden]");
+
+document.addEventListener('click', function(e){
+    if(e.target.matches('.ref2029_select_btn'))
+    {
+        // get eprintid from hidden sibling input element
+        var div = e.target.parentNode;
+        var eprintid = div.querySelector("input[type=hidden]");
  
-            // get the UoA from dropdown
-            var uoa_select = div.querySelector("select[name=uoa]");
+        // get the UoA from dropdown
+        var uoa_select = div.querySelector("select[name=uoa]");
 
-            // update the user record
-            new Ajax.Request( '/cgi/ref2029/add_selection', {
-                parameters: "eprintid="+eprintid.value+"&uoa="+uoa_select.value,
-                method: "POST",
-                onSuccess: function(response) {
-                    // Update the UI to show the new option
-                    // This seems a bit clumsy, maybe there should be a more universal Ajax
-                    // approach to showing an eprint's selections
-                    var new_item = response.responseText;
+        // update the user record
+        new Ajax.Request( '/cgi/ref2029/add_selection', {
+            parameters: "eprintid="+eprintid.value+"&uoa="+uoa_select.value,
+            method: "POST",
+            onSuccess: function(response) {
+                // Update the UI to show the new option
+                // This seems a bit clumsy, maybe there should be a more universal Ajax
+                // approach to showing an eprint's selections
+                var new_item = response.responseText;
                     
-                    // add the selection to the list
-                    var ul = div.parentNode.parentNode;
-                    var new_li = document.createElement("li");
-                    new_li.innerHTML =  new_item.trim();
-                    ul.insertBefore( new_li, ul.children[ul.children.length-1] );
+                // add the selection to the list
+                var ul = div.parentNode.parentNode;
+                var new_li = document.createElement("li");
+                new_li.innerHTML =  new_item.trim();
+                ul.insertBefore( new_li, ul.children[ul.children.length-1] );
 
-                    // and remove the option from the selection list
-                    for (var i = uoa_select.length - 1; i >= 0; i--)
+                // and remove the option from the selection list
+                for (var i = uoa_select.length - 1; i >= 0; i--)
+                {
+                    if(uoa_select.options[i].value == uoa_select.value)
                     {
-                        if(uoa_select.options[i].value == uoa_select.value)
-                        {
-                            uoa_select.remove(i);
-                        }
+                        uoa_select.remove(i);
                     }
+                }
 
-                    // no more options, hide this whole element
-                    if( uoa_select.length == 0 )
-                    {
-                        div.style.display = 'none';
-                    }
-                },
-                onFailure: function() {
-                    error_div = div.querySelector("div.ref2029_new_selection_error");
-                    error_div.innerHTML += 'Error adding REF selection';
-                    error_div.style.display = 'block';
-                },
-            });
-        });
-    });
+                // no more options, hide this whole element
+                if( uoa_select.length == 0 )
+                {       
+                    div.style.display = 'none';
+                }
+            },
+            onFailure: function() {
+                error_div = div.querySelector("div.ref2029_new_selection_error");
+                error_div.innerHTML += 'Error adding REF selection';
+                error_div.style.display = 'block';
+            },
+        }); //end AJAX
+    }
 });
+    
 JS
 
     return $chunk;
@@ -215,7 +214,7 @@ sub bullet_points
 
         # Button
         my $new_selection_btn = $new_selection_div->appendChild( $repo->make_element( "input",
-            class => "ep_form_action_button",
+            class => "ep_form_action_button ref2029_select_btn",
             type => "button",
             name => "new_selection",
             value => "Select for REF 2029",

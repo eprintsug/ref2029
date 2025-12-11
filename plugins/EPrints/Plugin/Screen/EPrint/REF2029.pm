@@ -33,7 +33,7 @@ sub can_be_viewed
 
     return 0 unless $self->{session}->current_user->is_set( "ref2029_uoa_champion" );
     
-    return $self->allow( "eprint/hefce_oa" );
+    return $self->allow( "eprint/ref2029_selection" );
 }
 
 #sub allow_create_selection { shift->can_be_viewed }

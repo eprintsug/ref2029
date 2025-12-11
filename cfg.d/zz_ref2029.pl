@@ -1,6 +1,9 @@
 # Turn on the plugin
 $c->{ref2029_enabled} = 1;
 
+# Basic permissions
+push @{ $c->{user_roles}->{admin} }, qw{ +eprint/ref2029_selection };
+
 # Enabled the Screens
 $c->{plugins}{"Screen::REF2029"}{params}{disable} = 0;
 $c->{plugins}{"Screen::EPrint::REF2029"}{params}{disable} = 0;
