@@ -71,7 +71,14 @@ sub action_cancel
 {
     my( $self ) = @_;
 
-    $self->{processor}->{screenid} = "EPrint::View";
+    if( $self->allow( "eprint/view" ) )
+    {
+        $self->{processor}->{screenid} = "EPrint::View";
+    }
+    else
+    {
+        $self->{processor}->{screenid} = "EPrint::REF2029";
+    }
 }
 
 sub allow_remind
@@ -117,7 +124,14 @@ sub action_remind
         $self->{processor}->add_message( "message", $session->html_phrase( "ref2029/remind_review:email_success" ) );
     }
 
-    $self->{processor}->{screenid} = "EPrint::View";
+    if( $self->allow( "eprint/view" ) )
+    {
+        $self->{processor}->{screenid} = "EPrint::View";
+    }
+    else
+    {
+        $self->{processor}->{screenid} = "EPrint::REF2029";
+    }
 }
 
 1;

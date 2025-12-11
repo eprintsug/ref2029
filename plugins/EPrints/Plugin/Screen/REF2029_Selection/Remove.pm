@@ -71,7 +71,14 @@ sub action_cancel
 {
     my( $self ) = @_;
 
-    $self->{processor}->{screenid} = "EPrint::View";
+    if( $self->allow( "eprint/view" ) )
+    {
+        $self->{processor}->{screenid} = "EPrint::View";
+    }
+    else
+    {
+        $self->{processor}->{screenid} = "EPrint::REF2029";
+    }
 }
 
 sub allow_remove
@@ -94,7 +101,14 @@ sub action_remove
 
     $self->{processor}->add_message( "message", $self->html_phrase( "item_removed" ) );
 
-    $self->{processor}->{screenid} = "EPrint::View";
+    if( $self->allow( "eprint/view" ) )
+    {
+        $self->{processor}->{screenid} = "EPrint::View";
+    }
+    else
+    {
+        $self->{processor}->{screenid} = "EPrint::REF2029";
+    }
 }
 
 1;

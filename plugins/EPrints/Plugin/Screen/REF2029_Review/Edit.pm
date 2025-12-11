@@ -75,7 +75,14 @@ sub screen_after_flow
 {
     my( $self ) = @_;
 
-    return "EPrint::View";
+    if( $self->allow( "eprint/view" ) )
+    {
+        return "EPrint::View";
+    }
+    else
+    {
+        return "EPrint::REF2029";
+    }
 }
 
 sub render_title

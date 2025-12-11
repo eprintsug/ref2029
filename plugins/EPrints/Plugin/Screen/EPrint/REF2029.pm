@@ -147,7 +147,14 @@ sub action_request_review
         }
     }
 
-    $self->{processor}->{screenid} = "EPrint::View";
+    if( $session->current_user->allow( "eprint/view", $self->{processor}->{eprint} ) > 1 )
+    {
+        $self->{processor}->{screenid} = "EPrint::View";
+    }
+    else
+    {
+        $self->{processor}->{screenid} = "EPrint::REF2029";
+    }
 }
 
 sub render
