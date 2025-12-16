@@ -1,10 +1,15 @@
-/* Benchmarks */
+/* REF2029 Screen */
+
+.ref2029_benchmarks h2,
+.ref2029_reports h2{
+    text-align: left;
+}
 
 #benchmarks{
     text-align: left;
 }
 
-.benchmarks > form div{
+.ref2029_benchmarks > form div{
     margin-bottom: 20px;
     text-align: left;
 }
@@ -44,6 +49,10 @@
 
 .benchmark .ep_block{
     display: contents;
+}
+
+.ref2029_reports ul{
+    list-style: none;
 }
 
 /* Selections */

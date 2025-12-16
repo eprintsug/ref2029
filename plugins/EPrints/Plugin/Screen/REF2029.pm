@@ -31,15 +31,25 @@ sub can_be_viewed
 
     return 0 unless( $self->{session}->config( 'ref2029_enabled' ) && defined $self->{session}->current_user );
 
-    return 0 if !$self->{session}->current_user->has_role( 'admin' );
+    # admins can view
+    return 1 if !$self->{session}->current_user->has_role( 'admin' );
+        
+    # UoA Champions can View
+    return 1 if $self->{session}->current_user->is_set( "ref2029_uoa_champion" );
 
-    return 1;
+    return 0;
 }
 
 sub allow_create_benchmark 
 {
-    # TODO Check for benchmark permissions!!!
-    return 1;
+    my( $self ) = @_;
+
+     return 0 unless( $self->{session}->config( 'ref2029_enabled' ) && defined $self->{session}->current_user );
+
+    # admins can view
+    return 1 if !$self->{session}->current_user->has_role( 'admin' );
+   
+    return 0;
 }
 
 sub action_create_benchmark
@@ -66,8 +76,19 @@ sub render
 
     my $frag = $xml->create_document_fragment;
 
+    my $user = $self->{session}->current_user;
+
     # render benchmarks
-    $frag->appendChild( $self->render_benchmarks );
+    if( $user->has_role( 'admin' ) )
+    {
+        $frag->appendChild( $self->render_benchmarks );
+    }
+
+    # render user's reports
+    if( $user->is_set( "ref2029_uoa_champion" ) )
+    {
+        $frag->appendChild( $self->render_reports( $user ) );
+    }
     
     return $frag;
 }
@@ -80,7 +101,7 @@ sub render_benchmarks
     my $xml = $repo->xml;
     my $xhtml = $repo->xhtml;
 
-    my $div = $xml->create_element( "div", class => "ep_block ep_sr_component benchmarks" );
+    my $div = $xml->create_element( "div", class => "ep_block ep_sr_component ref2029_benchmarks" );
 
     # title
     my $title = $xml->create_element( "h2", id => "benchmarks" );
@@ -114,5 +135,42 @@ sub render_benchmarks
         ) );
     } );
     
+    return $div;
+}
+
+sub render_reports
+{
+    my( $self, $user ) = @_;
+
+    my $repo = $self->{repository};
+    my $xml = $repo->xml;
+    my $xhtml = $repo->xhtml;
+
+    my $div = $xml->create_element( "div", class => "ep_block ep_sr_component ref2029_reports" );
+
+    # title
+    my $title = $xml->create_element( "h2", id => "reports" );
+    $title->appendChild( $self->html_phrase( "reports" ) );
+    $div->appendChild( $title );
+ 
+    # reports
+    my @uoas = @{$user->value( "ref2029_uoa_champion" )};
+    my @report_ids = $repo->plugin_list(
+        type => "Screen",
+    );
+    
+    $div->appendChild( my $ul = $xml->create_element( "ul" ) );
+    foreach my $id ( @report_ids )
+    {
+        next if( $id !~ /^Screen::Report::UoA/ );
+        my $r = $self->repository->plugin( "$id" );
+        
+        next if !grep { $r->{uoa} eq $_ } @uoas;
+
+        $ul->appendChild( my $li = $xml->create_element( "li" ) );
+        $li->appendChild( $r->render_action_link );
+
+    }
+
     return $div;
 }
