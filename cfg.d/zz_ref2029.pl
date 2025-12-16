@@ -47,7 +47,7 @@ $c->add_dataset_field( 'ref2029_selection', { name => "num_co_authors", type => 
 
 $c->add_dataset_field( 'ref2029_selection', { name => "abstract", type => "longtext", required => 0 }, reuse => 1 );
 $c->add_dataset_field( 'ref2029_selection', { name => "pending_pub", type => "boolean", required => 1 }, reuse => 1 );
-$c->add_dataset_field( 'ref2029_selection', { name => "multi_weight", type => "int", required => 0 }, reuse => 1 );
+$c->add_dataset_field( 'ref2029_selection', { name => "multi_weight", type => "set", options => [qw( single double )], required => 1 }, reuse => 1 );
 $c->add_dataset_field( 'ref2029_selection', { name => "reserves", type => "itemref", datasetid => 'ref2029_selection', multiple => 1, required => 0 }, reuse => 1 );
 $c->add_dataset_field( 'ref2029_selection', { name => "supplementary_url", type => "url", required => 0 }, reuse => 1 );
 $c->add_dataset_field( 'ref2029_selection', { name => "confidential", type => "longtext", required => 0 }, reuse => 1 );

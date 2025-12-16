@@ -36,8 +36,6 @@ sub can_be_viewed
 {
     my( $self ) = @_;
 
-    return 0 if( !$self->SUPER::can_be_viewed );
-
     return 0 unless( $self->{session}->config( 'ref2029_enabled' ) && defined $self->{session}->current_user );
 
     return 0 unless $self->{session}->current_user->is_set( "ref2029_uoa_champion" );
@@ -95,6 +93,7 @@ sub ajax_ref2029_selection
         return if !defined $selection; # odd
 
         my $frag = $selection->render_citation( "report" );
+
         push @{$json->{data}}, {
             datasetid => $selection->dataset->id,
             dataobjid => $selection->id,
@@ -142,7 +141,10 @@ sub bullet_points
 
     my @bullets;
 
-    
+    # Selection link
+    my $selection_link = $repo->render_link( $selection->get_control_url, "_blank" );
+    $selection_link->appendChild( $repo->make_text( "Edit Selection" ) );
+    push @bullets, $selection_link;
 
     return @bullets;
 }

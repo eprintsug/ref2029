@@ -39,6 +39,40 @@ $c->{plugins}{"Screen::Report::UoA::Z"}{params}{disable} = 0;
 $c->{plugins}{"Screen::Report::REF2029AddSelection"}{params}{disable} = 0;
 $c->{plugins}{"Screen::Report::REF2029AddSelection"}{params}{custom} = 1;
 
+$c->{ref2029_selection_report}->{exportfields} = {
+    ref2029_selection_report_publication => [qw( 
+        eprintid
+        title
+        abstract
+        type
+        date
+        doi
+    )],
+    ref2029_selection_report_link => [qw(
+        hesa
+        former_staff
+        pre_pub_link
+    )],
+    ref2029_selection_report_selection => [qw(
+        rating
+        open_access
+        xref
+        research_group
+        research_specialism
+        num_co_authors
+        pending_pub
+        multi_weight
+        reserves
+        supplementary_url
+        confidential
+    )],
+
+};
+
+#set order of export plugins
+$c->{ref2029_selection_report}->{export_plugins} = [ qw( Export::Report::CSV Export::Report::HTML Export::Report::JSON )];
+
+
 $c->{search}->{ref2029_add_selection} = $c->{search}->{advanced};
 
 # group by options

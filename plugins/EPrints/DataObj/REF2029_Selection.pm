@@ -11,6 +11,16 @@ sub new
     return shift->SUPER::new( @_ );
 }
 
+sub get_control_url
+{
+    my( $self ) = @_;
+
+    return $self->{session}->get_repository->get_conf( "perl_url" ).
+        "/users/home?screen=EPrint::REF2029::Edit&selectionid=".
+        $self->id;
+}
+
+
 sub get_dataset_id
 {
     my ($self) = @_;

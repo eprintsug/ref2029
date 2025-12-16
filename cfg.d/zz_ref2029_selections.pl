@@ -38,6 +38,12 @@ $c->{set_ref2029_selection_automatic_fields} = sub
         $selection->set_value( "benchmarkid", $benchmark->id ) if defined $benchmark;
     }
 
+    # Weighting
+    if( !$selection->is_set( "multi_weight" ) )
+    {
+        $selection->set_value( "multi_weight", "single" );
+    }
+
     # get the eprint this selection is about
     my $eprint_field = $selection->dataset->field( "eprintid" );
     my $eprint = $eprint_field->get_item( $session, $selection->value( "eprintid" ) );

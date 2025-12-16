@@ -95,22 +95,22 @@
 <epp:phrase id="ref2029_selection_fieldopt_type_D">D - Journal Article</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_E">E - Conference Contribution</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_F">F - Patent</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_G">G</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_H">H</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_G">G - Software</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_H">H - Website Content</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_I">I - Performance</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_J">J - Composition</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_K">K</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_K">K - Design</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_L">L - Artefact</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_M">M - Exhibition</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_N">N</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_O">O</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_P">P</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_N">N - Research Report for External Body</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_O">O - Confidential Report for External Body</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_P">P - Devices and Products</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_Q">Q - Video</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_R">R</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_S">S</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_R">R - Scholarly Edition</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_S">S - Research Data Sets and Databases</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldopt_type_T">T - Other</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_U">U</epp:phrase>
-<epp:phrase id="ref2029_selection_fieldopt_type_V">V</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_U">U - Working Paper</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_type_V">V - Translation</epp:phrase>
 
 <epp:phrase id="ref2029_selection_fieldname_doi">DOI</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldhelp_doi"></epp:phrase>
@@ -142,6 +142,9 @@
 <epp:phrase id="ref2029_selection_fieldhelp_pending_pub"></epp:phrase>
 <epp:phrase id="ref2029_selection_fieldname_multi_weight">Request to 'multiple-weight' the output</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldhelp_multi_weight"></epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_multi_weight_single">Single</epp:phrase>
+<epp:phrase id="ref2029_selection_fieldopt_multi_weight_double">Double</epp:phrase>
+
 <epp:phrase id="ref2029_selection_fieldname_reserves">Reserves</epp:phrase>
 <epp:phrase id="ref2029_selection_fieldhelp_reserves"></epp:phrase>
 <epp:phrase id="ref2029_selection_fieldname_supplementary_url">Supplementary information</epp:phrase>
@@ -280,6 +283,9 @@
 <epp:phrase id="Plugin/Screen/Report/UoA/D34:title">D34 Communication, Cultural and Media Studies, Library and Information Management</epp:phrase>
 <epp:phrase id="Plugin/Screen/Report/UoA/Z:title">Z - Unaffiliated</epp:phrase>
 
+<epp:phrase id="exportfields:ref2029_selection_report_selection">Selection Fields</epp:phrase>
+<epp:phrase id="exportfields:ref2029_selection_report_publication">Output Fields</epp:phrase>
+<epp:phrase id="exportfields:ref2029_selection_report_link">Substantive Link Fields</epp:phrase>
 
 <epp:phrase id="ref2029_selection:test:no_score">No Mediated Score Provided</epp:phrase>
 <epp:phrase id="ref2029_selection:test:pending_review">Awaiting review response from: <epc:pin name="name"/></epp:phrase>
