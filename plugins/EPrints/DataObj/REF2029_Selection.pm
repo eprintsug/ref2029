@@ -16,7 +16,7 @@ sub get_control_url
     my( $self ) = @_;
 
     return $self->{session}->get_repository->get_conf( "perl_url" ).
-        "/users/home?screen=EPrint::REF2029::Edit&selectionid=".
+        "/users/home?screen=REF2029_Selection::Edit&selectionid=".
         $self->id;
 }
 
