@@ -146,6 +146,24 @@ sub bullet_points
     $selection_link->appendChild( $repo->make_text( "Edit Selection" ) );
     push @bullets, $selection_link;
 
+    # Mediated Score
+    if( $selection->is_set( "rating" ) && $selection->value( "rating" ) ne "NONE" )
+    {
+        push @bullets, $repo->phrase( "ref2029_selection:bullet:score", score => $selection->render_value( "rating" ) );
+    }
+
+    # Reviews
+    if( $selection->is_set( "reviews" ) )
+    {
+        foreach my $review ( @{$selection->value( "reviews" )} )
+        {
+            if( $review->value( "status" ) eq "complete" )
+            {
+                push @bullets, $repo->phrase( "ref2029_selection:bullet:complete_review", name => $review->render_value( "reviewer" ), score => $review->render_value( "rating" ) ); 
+            }
+        }
+    }
+
     return @bullets;
 }
 

@@ -289,6 +289,9 @@
 <epp:phrase id="exportfields:ref2029_selection_report_publication">Output Fields</epp:phrase>
 <epp:phrase id="exportfields:ref2029_selection_report_link">Substantive Link Fields</epp:phrase>
 
+<epp:phrase id="ref2029_selection:bullet:score">Mediated Score: <epc:pin name="score"/></epp:phrase>
+<epp:phrase id="ref2029_selection:bullet:complete_review">Review completed by: <epc:pin name="name"/> (Score: <epc:pin name="score"/>)</epp:phrase>
+
 <epp:phrase id="ref2029_selection:test:no_score">No Mediated Score Provided</epp:phrase>
 <epp:phrase id="ref2029_selection:test:pending_review">Awaiting review response from: <epc:pin name="name"/></epp:phrase>
 
