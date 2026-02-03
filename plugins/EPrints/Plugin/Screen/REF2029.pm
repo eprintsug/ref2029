@@ -32,7 +32,7 @@ sub can_be_viewed
     return 0 unless( $self->{session}->config( 'ref2029_enabled' ) && defined $self->{session}->current_user );
 
     # admins can view
-    return 1 if !$self->{session}->current_user->has_role( 'admin' );
+    return 1 if $self->{session}->current_user->has_role( 'admin' );
         
     # UoA Champions can View
     return 1 if $self->{session}->current_user->is_set( "ref2029_uoa_champion" );
@@ -47,7 +47,7 @@ sub allow_create_benchmark
      return 0 unless( $self->{session}->config( 'ref2029_enabled' ) && defined $self->{session}->current_user );
 
     # admins can view
-    return 1 if !$self->{session}->current_user->has_role( 'admin' );
+    return 1 if $self->{session}->current_user->has_role( 'admin' );
    
     return 0;
 }
