@@ -51,6 +51,7 @@ sub get_system_field_info
             'review_pending',
             ]
         },
+        { name => "submitted", type => "timestamp", required => 0 },
     );       
 }
 

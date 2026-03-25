@@ -66,7 +66,6 @@ $c->{datasets}->{ref2029_review} = {
 $c->add_dataset_field( 'ref2029_review', { name => "rating", type => "set", required => 0, input_rows => 1, options => [qw( NONE 1 2 3 4 )] }, reuse => 1 );
 $c->add_dataset_field( 'ref2029_review', { name => "review", type => "longtext", required => 0 }, reuse => 1 );
 
-
 # New User Fields
 $c->add_dataset_field( 'user', { name => 'ref2029_uoa', type => 'subject', top => 'ref2029_uoas' }, reuse => 1 );
 

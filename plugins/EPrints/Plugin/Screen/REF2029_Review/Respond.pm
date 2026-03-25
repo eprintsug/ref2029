@@ -75,6 +75,7 @@ sub action_save
     
     # now we've saved the review, remove the pin
     $self->{processor}->{review}->set_value( "pin", undef );
+    $self->{processor}->{review}->set_value( "submitted", EPrints::Time::get_iso_timestamp );
     $self->{processor}->{review}->set_value( "status", "complete" );
     $self->{processor}->{review}->commit;
 

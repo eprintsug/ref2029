@@ -171,6 +171,7 @@
 
 <epp:phrase id="ref2029_review_fieldname_rating">Score</epp:phrase>
 <epp:phrase id="ref2029_review_fieldhelp_rating">Please select a score from 1 to 5 stars</epp:phrase>
+<epp:phrase id="ref2029_review_fieldopt_rating_NONE">No Score</epp:phrase>
 <epp:phrase id="ref2029_review_fieldopt_rating_0">1 Star</epp:phrase>
 <epp:phrase id="ref2029_review_fieldopt_rating_1">2 Stars</epp:phrase>
 <epp:phrase id="ref2029_review_fieldopt_rating_2">3 Stars</epp:phrase>
@@ -181,6 +182,8 @@
 <epp:phrase id="ref2029_review_fieldopt_status_complete">Review Complete</epp:phrase>
 <epp:phrase id="ref2029_review_fieldopt_status_review_pending">Review Pending</epp:phrase>
 <epp:phrase id="ref2029_review_fieldopt_status_error">Error</epp:phrase>
+
+<epp:phrase id="ref2029_review_fieldname_submitted">Submitted</epp:phrase>
 
 <!-- ReviewEdit -->
 <epp:phrase id="Plugin/Screen/REF2029_Review/Edit:review_title">Edit Review for: <epc:pin name="title"/></epp:phrase>
